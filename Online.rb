@@ -5,17 +5,23 @@ require 'net_http_ssl_fix'
 output = File.new('titles.txt', 'w+')
 
 titles = []
+images = []
+links = [
+  'http://ee24.com',
+  'http://www.core-me.com',
+  'http://off-planproperties.ae',
+  'https://www.theurbandeveloper.com',
+]
 
-doc1 = Nokogiri::HTML(open('http://ee24.com/'))
-doc2 = Nokogiri::HTML(open('http://www.core-me.com/'))
-doc3 = Nokogiri::HTML(open('http://off-planproperties.ae/'))
-doc4 = Nokogiri::HTML(open('https://www.theurbandeveloper.com/'))
+links.each do |url|
+  @doc = Nokogiri::HTML(open(url))
+  titles << @doc.xpath('//head//title')
+  if @doc.xpath('//img')
+    images << @doc.xpath('//img').first
+  end
+end
 
-titles << doc1.title
-titles << doc2.title
-titles << doc3.title
-titles << doc4.title
-
-output.write(titles)
+output.write(titles + images)
 
 puts titles
+puts images
