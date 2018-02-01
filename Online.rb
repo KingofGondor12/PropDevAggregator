@@ -20,26 +20,24 @@ links = [
   'https://propertyeu.info/',
   'https://europroperty.com/',
   'https://pie-mag.com/',
-  'https://www.asteco.com/'
+  'https://www.asteco.com/',
 ]
 
-# Array of crawled titles
-titles = []
-
-# Array of crawled image URLs
-images = []
+# Array of crawled results
+results = []
 
 # Web crawler logic
 links.each do |url|
   @doc = Nokogiri::HTML(open(url))
-  titles << @doc.xpath('//head//title').first
+  @title = @doc.xpath('//head//title/text()').first.text
   if @doc.xpath('//img')
-    images << @doc.xpath('//img').first
+    @image = @doc.xpath('//img//@src').first.content
   end
+  results << {name: @title, image: @image}
 end
 
 # Output all crawled data to text file
-output.write(titles + images)
+output.write(results)
 
 # Prints contents of titles and images arrays to the screen
-puts titles + images
+puts results
