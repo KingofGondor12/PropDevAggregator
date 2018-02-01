@@ -1,11 +1,15 @@
+# Marketing/Propery Development Aggregator App
+# --------------------------------------------
+
+# Gems required
 require 'Nokogiri'
 require 'open-uri'
 require 'net_http_ssl_fix'
 
-output = File.new('titles.txt', 'w+')
+# Create the output file
+output = File.new('output.txt', 'w+')
 
-results = []
-
+# Array of all URLs
 links = [
   'http://ee24.com',
   'http://www.core-me.com',
@@ -19,6 +23,10 @@ links = [
   'https://www.asteco.com'
 ]
 
+# Array of crawled results
+results = []
+
+# Web crawler logic
 links.each do |url|
   @doc = Nokogiri::HTML(open(url))
   @title = @doc.xpath('//head//title').first.content
@@ -35,6 +43,8 @@ links.each do |url|
   results << {name: @title, logo: @image}
 end
 
+# Output all crawled data to text file
 output.write(results)
 
+# Prints contents of titles and images arrays to the screen
 puts results
