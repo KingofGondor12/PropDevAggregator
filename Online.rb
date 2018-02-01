@@ -22,13 +22,17 @@ links = [
 links.each do |url|
   @doc = Nokogiri::HTML(open(url))
   @title = @doc.xpath('//head//title').first.content
+  @title = @title.squeeze(" ").gsub(/[^a-zA-Z0-9. ]/, '')
+  if @title[0] == " "
+    @title = @title.strip
+  end
   if @doc.xpath('//img')
     @image = @doc.xpath('//img//@src').first.content
     if @image.slice(0, 4) != "http"
       @image = "#{url}#{@image}"
     end
   end
-  results << {name: @title.squeeze(" ").gsub(/[^a-zA-Z0-9. ]/, ''), logo: @image}
+  results << {name: @title, logo: @image}
 end
 
 output.write(results)
