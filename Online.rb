@@ -37,8 +37,6 @@ links.each do |url|
     @title = @title.strip
   end
   @images = @doc.xpath('//img//@src')
-  @images = @images
-  puts @doc.xpath('substring-before(substring-after(//div/@style, "background: url('"), "')")')
   @images.each do |image|
     if image.content.slice(0, 4) != "http"
       image = "#{url}#{image.content}"
