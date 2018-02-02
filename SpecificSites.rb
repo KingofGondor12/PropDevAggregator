@@ -52,13 +52,84 @@ end
   end
 end
 
-puts @urban_images
-
 urban_count = 0
 @urban_titles.each do |title|
   results << {name: title, image: @urban_images[urban_count].value}
   urban_count = urban_count + 1
 end
+
+@europrop = Nokogiri::HTML(open("https://europroperty.com/news/category/Analysis/141"))
+
+@europrop_title_search = @europrop.xpath('//div[@class="container"]/div[@class="row"]/div[@class="col-sm-8"]/div[@class="row"]/div/a/div/h3')
+@europrop_image_search = @europrop.xpath('//div[@class="container"]/div[@class="row"]/div[@class="col-sm-8"]/div[@class="row"]/div/a//img/@src')
+
+@europrop_titles = []
+
+@europrop_title_search.each do |h3|
+  @europrop_titles << h3.inner_text
+end
+
+@europrop_images = []
+
+@europrop_image_search.each do |img|
+  @europrop_images << "https://europroperty.com#{img}"
+end
+
+europrop_count = 0
+@europrop_titles.each do |title|
+  results << {name: title, image: @europrop_images[europrop_count]}
+  europrop_count = europrop_count + 1
+end
+
+@ee24 = Nokogiri::HTML(open("http://ee24.com/daily/"))
+
+@ee24_title_search = @ee24.xpath('//div/div/div[@class="container"]//div[@class="grid js-masonry"]/article//h3/a')
+@ee24_image_search = @ee24.xpath('//div/div/div[@class="container"]//div[@class="grid js-masonry"]/article//figure/a/img/@src')
+
+@ee24_titles = []
+
+@ee24_title_search.each do |a|
+  @ee24_titles << a.inner_text
+end
+
+@ee24_images = []
+
+@ee24_image_search.each do |img|
+  @ee24_images << "http://ee24.com#{img}"
+end
+
+ee24_count = 0
+@ee24_titles.each do |title|
+  results << {name: title, image: @ee24_images[ee24_count]}
+  ee24_count = ee24_count + 1
+end
+
+@core = Nokogiri::HTML(open("http://www.core-me.com/latest-core-news.html"))
+
+@core_title_search = @core.xpath('//div[@id="content_area"]/ul/li/div[@class="core_news_details"]//h2')
+@core_image_search = @core.xpath('//div[@id="content_area"]/ul/li/div[@class="core_news_picture"]/a/img/@src')
+
+@core_titles = []
+
+@core_title_search.each do |a|
+  @core_titles << a.inner_text
+end
+
+@core_images = []
+
+@core_image_search.each do |img|
+  @core_images << img
+end
+
+core_count = 0
+@core_titles.each do |title|
+  if core_count < 11
+    results << {name: title, image: @core_images[core_count].value}
+    core_count = core_count + 1
+  end
+end
+
+# Writing to outside file
 
 output.write(results)
 

@@ -36,23 +36,27 @@ links.each do |url|
   if @title[0] == " "
     @title = @title.strip
   end
-  @images = @doc.xpath('//img//@src')
-  @images.each do |image|
-    if image.content.slice(0, 4) != "http"
-      image = "#{url}#{image.content}"
-      if image.slice(-3, 3) == 'jpg'
-        # @size_test = ImageSize.path(image)
-        # if @size_test.width >= 1024 && @size_test.height >= 768
-          @imagesArray << image
-        # end
-      end
-    end
-  end
-  results << {name: @title, images: @imagesArray}
+  # @images = @doc.xpath('//img//@src')
+  @images = @doc.xpath(substring-before(substring-after('//div/@style', "background-image: url('"), "')"))
+
+  puts @images
+
+  # @images.each do |image|
+  #   if image.content.slice(0, 4) != "http"
+  #     image = "#{url}#{image.content}"
+  #     if image.slice(-3, 3) == 'jpg'
+  #       # @size_test = ImageSize.path(image)
+  #       # if @size_test.width >= 1024 && @size_test.height >= 768
+  #         @imagesArray << image
+  #       # end
+  #     end
+  #   end
+  # end
+  # results << {name: @title, images: @imagesArray}
 end
 
 # Output all crawled data to text file
-output.write(results)
-
-# Prints contents of titles and images arrays to the screen
-puts results
+# output.write(results)
+#
+# # Prints contents of titles and images arrays to the screen
+# puts results
