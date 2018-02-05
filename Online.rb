@@ -2,7 +2,7 @@
 # --------------------------------------------
 
 # Gems required
-require 'Nokogiri'
+require 'nokogiri'
 require 'open-uri'
 require 'net_http_ssl_fix'
 require 'image_size'
@@ -32,14 +32,38 @@ links.each do |url|
   @imagesArray = []
   @doc = Nokogiri::HTML(open(url))
   @title = @doc.xpath('//head//title').first.content
-  @title = @title.squeeze(" ").gsub(/[^a-zA-Z0-9. ]/, '')
+  @title = @title.gsub(/[^a-zA-Z0-9. ]/, '').squeeze(" ")
+
   if @title[0] == " "
     @title = @title.strip
   end
-  # @images = @doc.xpath('//img//@src')
-  @images = @doc.xpath(substring-before(substring-after('//div/@style', "background-image: url('"), "')"))
 
-  puts @images
+  @images = @doc.xpath('//img//@src')
+  @divImages = @doc.xpath('//div//@style')
+
+  @divImages.each do |div|
+    div = div.to_s
+    array = []
+    if div.include?('background-image:')
+      temp = div.index("background-image:url(").to_i
+      temp2 = "background-image:url(".size.to_i
+      temp3 = (temp + temp2)
+      for i in temp3..div.length-1
+        if div[i] == ')'
+          break
+        end
+        array << div[i]
+      end
+      array = array.join('').to_s
+      if array.start_with?("http")
+        array.gsub(/\(+'/, '').squeeze
+      else
+        array.gsub(/\(+'+/, '').squeeze
+        image = array.insert(0, url)
+      end
+      @imagesArray << image
+    end
+  end
 
   # @images.each do |image|
   #   if image.content.slice(0, 4) != "http"
@@ -52,11 +76,11 @@ links.each do |url|
   #     end
   #   end
   # end
-  # results << {name: @title, images: @imagesArray}
+  results << {name: @title, images: @imagesArray}
 end
 
 # Output all crawled data to text file
-# output.write(results)
-#
-# # Prints contents of titles and images arrays to the screen
-# puts results
+output.write(results)
+
+# Prints contents of titles and images arrays to the screen
+puts results
