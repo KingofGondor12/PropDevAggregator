@@ -113,3 +113,5 @@ output.write(results)
 
 # Prints contents of titles and images arrays to the screen
 puts results
+
+# +10 Bonus Points for code not being a brothel
