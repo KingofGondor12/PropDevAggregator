@@ -44,21 +44,21 @@ links.each do |url|
   @divImages.each do |div|
     div = div.to_s
     array = []
-    if div.include?('background-image:')
-      temp = div.index("background-image:url(").to_i
-      temp2 = "background-image:url(".size.to_i
+    if div.include?('background')
+      temp = div.index("url(").to_i
+      temp2 = "url(".size.to_i
       temp3 = (temp + temp2)
       for i in temp3..div.length-1
-        if div[i] == ')'
+        if div[i] == ")"
           break
         end
         array << div[i]
       end
       array = array.join('').to_s
       if array.start_with?("http")
-        array.gsub(/\(+'/, '').squeeze
+        array.delete("'")
       else
-        array.gsub(/\(+'+/, '').squeeze
+        array.delete("'")
         image = array.insert(0, url)
       end
       @imagesArray << image
