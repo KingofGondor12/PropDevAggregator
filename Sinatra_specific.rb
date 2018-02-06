@@ -7,18 +7,24 @@ require 'json'
 get '/' do
 
   results = []
+  resultsfinal = []
+  @off_plan_results = []
+  @urban_results = []
 
   # Off Plan Properties Function
 
-  @off_plan = Nokogiri::HTML(open("https://offplan-properties.ae/buy-new-projects-dubai/dubai-land/"))
+  off_plan_url = "https://offplan-properties.ae/buy-new-projects-dubai/dubai-land/"
 
-  @off_plan_image_search = @off_plan.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]/div/div[@class="col-md-12 col-sm-12 col-xs-12"]/a/img/@src')
+  @off_plan = Nokogiri::HTML(open(off_plan_url))
+
   @off_plan_title_search = @off_plan.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]//h4/a')
+  @off_plan_image_search = @off_plan.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]/div/div[@class="col-md-12 col-sm-12 col-xs-12"]/a/img/@src')
+  @off_plan_url_search = @off_plan.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]//h4/a/@href')
 
   @off_plan_titles = []
 
-  @off_plan_title_search.each do |a|
-    @off_plan_titles << a.inner_text
+  @off_plan_title_search.each do |title|
+    @off_plan_titles << title.inner_text
   end
 
   @off_plan_images = []
@@ -27,23 +33,34 @@ get '/' do
     @off_plan_images << img
   end
 
+  @off_plan_url = []
+
+  @off_plan_url_search.each do |url|
+    @off_plan_url << url
+  end
+
   off_plan_count = 0
   @off_plan_titles.each do |title|
-    results << {name: title, image: @off_plan_images[off_plan_count].value}
+    @off_plan_results << {name: title,
+                          url: @off_plan_url[off_plan_count].value,
+                          image: @off_plan_images[off_plan_count].value}
     off_plan_count = off_plan_count + 1
   end
 
   # TheUrbanDeveloper Function
 
-  @urban = Nokogiri::HTML(open("https://theurbandeveloper.com/category/Real%20Estate"))
+  @u_url = "https://theurbandeveloper.com/category/Real%20Estate"
+
+  @urban = Nokogiri::HTML(open(@u_url))
 
   @urban_title_search = @urban.xpath('/html//div[@id="appBody"]//div[@class="category__body"]/a//div[@class="category-article-card__title"]')
   @urban_image_search = @urban.xpath('//div[@id="appBody"]/div[@class="category-container"]//div[@class="category__body"]/a//img/@src')
+  @urban_url_search = @urban.xpath('//div[@id="appBody"]/div[@class="category-container"]//div[@class="category__body"]/a//@href')
 
   @urban_titles = []
 
-  @urban_title_search.each do |div|
-    @urban_titles << div.inner_text
+  @urban_title_search.each do |title|
+    @urban_titles << title.inner_text
   end
 
   @urban_images = []
@@ -54,9 +71,17 @@ get '/' do
     end
   end
 
+  @urban_url = []
+
+  @urban_url_search.each do |url|
+    @urban_url << url
+  end
+
   urban_count = 0
   @urban_titles.each do |title|
-    results << {name: title, image: @urban_images[urban_count].value}
+    @urban_results << {name: title,
+                       url: "https://theurbandeveloper.com" + @urban_url[urban_count].value,
+                       image: @urban_images[urban_count].value}
     urban_count = urban_count + 1
   end
 
@@ -131,6 +156,8 @@ get '/' do
     end
   end
 
-return results.to_json
+  resultsfinal << @off_plan_results + @urban_results + results
+
+  return resultsfinal.to_json
 
 end
