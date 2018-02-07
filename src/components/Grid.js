@@ -18,7 +18,7 @@ class Grid extends Component {
               </div>
               <div className="content">
                 <a href={hash.url}>
-                  {hash.title}
+                  {hash.name}
                 </a>
               </div>
             </div>
