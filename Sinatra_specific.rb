@@ -1,8 +1,14 @@
 require 'sinatra'
+require 'sinatra/cors'
 require 'nokogiri'
 require 'open-uri'
 require 'net_http_ssl_fix'
 require 'json'
+
+set :allow_origin, "http://localhost:3000"
+set :allow_methods, "GET,HEAD,POST"
+set :allow_headers, "content-type,if-modified-since"
+set :expose_headers, "location,link"
 
 get '/' do
 
