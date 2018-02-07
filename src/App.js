@@ -1,12 +1,18 @@
 // React Components
-
 import React, {Component} from 'react';
+
+// Semantic.ui React Components
+import {
+         Container,
+         Segment
+       }
+       from 'semantic-ui-react'
 
 // Stylesheets
 import './App.css';
 
 // Child Components
-import Grid from './components/Grid'
+import CardGrid from './components/CardGrid'
 
 // API/Axios
 import {api} from './api/init';
@@ -23,13 +29,11 @@ render() {
   const {siteData} = this.state
 
   return (
-    <div className="ui container">
-      <div className="ui doubling stackable four column grid">
-          {siteData.map(() =>
-            <Grid siteData={siteData} />
-            )
-          }
-      </div>
+    <div>
+      <Container>
+        <Segment inverted color='black' textAlign='center' size='massive'>Q1 Design PropDev Aggrigator</Segment>
+        <CardGrid loading siteData={siteData} />
+      </Container>
     </div>
     )
   }
