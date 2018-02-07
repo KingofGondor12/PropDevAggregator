@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 
 // Semantic.ui React Components
 import {
-         Container
+         Container,
+         Segment
        }
        from 'semantic-ui-react'
 
@@ -30,7 +31,8 @@ render() {
   return (
     <div>
       <Container>
-        <CardGrid siteData={siteData} />
+        <Segment inverted color='black' textAlign='center' size='massive'>Q1 Design PropDev Aggrigator</Segment>
+        <CardGrid loading siteData={siteData} />
       </Container>
     </div>
     )
