@@ -15,10 +15,11 @@ class CardGrid extends Component {
     const { siteData } = this.props
 
     const extra = (
-      <a><Icon name='facebook f' />
-         <Icon name='instagram' />
-         <Icon name='twitter' />
-      </a>
+      <div className="cardSocialIcons" align='center'>
+        <a><Icon name='facebook f' /></a>
+        <a><Icon name='instagram' /></a>
+        <a><Icon name='twitter' /></a>
+      </div>
     )
 
     return (
@@ -28,8 +29,8 @@ class CardGrid extends Component {
         siteData.map((hash) => (
         <Card
           image={hash.image}
-          header={hash.name || hash.title}
-          meta='Real Estate'
+          header={hash.name}
+          meta={hash.tags}
           description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum amet sapiente, dicta tempora eum dolores odio. Illum doloribus magnam nostrum.'
           extra={extra}
         />
