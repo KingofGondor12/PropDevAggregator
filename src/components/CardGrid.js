@@ -8,19 +8,18 @@ import {
        }
        from 'semantic-ui-react'
 
+import {
+       FacebookShareButton,
+       LinkedinShareButton,
+       TwitterShareButton,
+       EmailShareButton,
+} from 'react-share';
+
 class CardGrid extends Component {
 
   render() {
 
     const { siteData } = this.props
-
-    const extra = (
-      <div className="cardSocialIcons" align='center'>
-        <a><Icon name='facebook f' /></a>
-        <a><Icon name='instagram' /></a>
-        <a><Icon name='twitter' /></a>
-      </div>
-    )
 
     return (
 
@@ -28,11 +27,38 @@ class CardGrid extends Component {
       {
         siteData.map((hash) => (
         <Card
+          className='cards'
           image={hash.image}
           header={hash.name}
           meta={hash.tags}
           description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum amet sapiente, dicta tempora eum dolores odio. Illum doloribus magnam nostrum.'
-          extra={extra}
+          extra={
+          <div className="cardSocialIcons" align='center'>
+            <FacebookShareButton
+              url={hash.url}
+              quote={hash.name}
+              className="Demo__some-network__share-button">
+              <Icon name='facebook f' />
+            </FacebookShareButton>
+            <TwitterShareButton
+              url={hash.url}
+              title={hash.title}
+              className="Demo__some-network__share-button">
+              <Icon name='twitter' />
+            </TwitterShareButton>
+            <LinkedinShareButton
+              url={hash.url}
+              title={hash.title}
+              className="Demo__some-network__share-button">
+              <Icon name='linkedin' />
+            </LinkedinShareButton>
+            <EmailShareButton
+              url={hash.url}
+              title={hash.title}
+              className="Demo__some-network__share-button">
+              <Icon name='mail outline' />
+            </EmailShareButton>
+          </div>}
         />
         ))
       }

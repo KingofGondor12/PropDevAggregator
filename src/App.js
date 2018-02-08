@@ -9,7 +9,8 @@ import {
         Search,
         Label,
         Image,
-        Loader
+        Loader,
+        Header
        } from 'semantic-ui-react'
 
 // Stylesheets
@@ -58,12 +59,12 @@ render() {
 
   return (
     <div>
-      <Segment className="AggHeader" inverted color='black' textAlign='center' size='massive'>
-        Q1 Design PropDev Aggrigator
+      <Segment className="headerBar" inverted color='black' textAlign='center' size='massive'>
+        <Header>Q1 Design</Header>
+        PropDev Aggrigator
       </Segment>
         <Container>
           <Search
-              minCharacters={'1'}
               input={{fluid: true}}
               size={'huge'}
               loading={isLoading}
