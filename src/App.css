@@ -1,4 +1,10 @@
-.image {
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+.AggHeader {
+  display: flex;
+  height: 15rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui.massive.segment, .ui.massive.segments .segment {
+  font-size: 3rem;
 }

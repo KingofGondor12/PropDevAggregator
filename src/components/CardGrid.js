@@ -28,7 +28,7 @@ class CardGrid extends Component {
         siteData.map((hash) => (
         <Card
           image={hash.image}
-          header={hash.name}
+          header={hash.name || hash.title}
           meta='Real Estate'
           description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum amet sapiente, dicta tempora eum dolores odio. Illum doloribus magnam nostrum.'
           extra={extra}
