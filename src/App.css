@@ -1,24 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
-
-.headerBar {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 100;
-  display: flex;
-  height: 15rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-}
-
-.ui.header {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.ui.massive.segment, .ui.massive.segments .segment {
-  font-size: 4rem;
+.WorldMap {
+  width: 100px;
 }
 
 .cardSocialIcons {
