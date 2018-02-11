@@ -1,28 +1,26 @@
 // React Components
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
 // Semantic.ui React Components
 import {
         Container,
-        Segment,
         Search,
         Label,
         Image,
         Loader
-       } from 'semantic-ui-react'
-
+      } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
-
 // Child Components
-import CardGrid from './components/CardGrid'
-
+import CardGrid from './components/CardGrid';
 // API/Axios
 import {api} from './api/init';
-
 // Lodash
-import _ from 'lodash'
+import _ from 'lodash';
+// World Map SVG
+import WorldMap from './components/WorldMap';
+// Q1ClearTitle
+import Q1ClearTitle from './images/Q1ClearTitle.png';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -58,14 +56,11 @@ render() {
 
   return (
     <div>
-      <Segment className="AggHeader" inverted color='black' textAlign='center' size='massive'>
-        Q1 Design PropDev Aggrigator
-      </Segment>
         <Container>
+          <Image className='Q1Title' centered src={Q1ClearTitle} />
           <Search
-              minCharacters={'1'}
               input={{fluid: true}}
-              size={'huge'}
+              size={'large'}
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               onSearchChange={this.handleSearchChange}
@@ -78,6 +73,8 @@ render() {
          <br />
          { !loaded && <Loader active size={'large'}>Loading</Loader> }
         <CardGrid siteData={siteData} />
+        <br />
+        <WorldMap className='WorldMap' />
       </Container>
     </div>
     )
@@ -122,7 +119,7 @@ render() {
       if (this.state.value.length < 1) return this.resetComponent()
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.tag)
+      const isMatch = result => re.test(result.name, result.tags)
 
       this.setState({
         isLoading: false,

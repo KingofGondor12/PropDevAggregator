@@ -1,16 +1,10 @@
-.AggHeader {
-  display: flex;
-  height: 15rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.ui.massive.segment, .ui.massive.segments .segment {
-  font-size: 3rem;
+.WorldMap {
+  width: 100px;
 }
 
 .cardSocialIcons {
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
