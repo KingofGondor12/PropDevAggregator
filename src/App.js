@@ -7,23 +7,19 @@ import {
         Search,
         Label,
         Image,
-        Loader,
-        Divider
+        Loader
       } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
 // Child Components
 import CardGrid from './components/CardGrid';
-import WorldMap from './components/WorldMap';
+import WorldMap2 from './components/WorldMap2';
 // API/Axios
 import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
 // Q1ClearTitle
-import Q1ClearTitle from './images/Q1ClearTitle.png';
-// amCharts
-import AmCharts from "@amcharts/amcharts3-react";
-import 'ammap3/ammap/ammap.js';
+import Q1ClearTitle from './images/Q1ClearTitle2.png';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -81,33 +77,8 @@ render() {
       <CardGrid siteData={siteData} />
         <br />
         {/* { loaded && <WorldMap className='WorldMap' /> } */}
-        { loaded && 
-          <AmCharts.React
-            style={{
-              width: "100%",
-              height: "500px"
-            }}
-            options={{
-              "type": "map",
-              "theme": "light",
-              "projection": "miller",
-
-              "dataProvider": {
-                "map": "worldLow",
-                "getAreasFromMap": true
-              },
-              "areasSettings": {
-                "autoZoom": true,
-                "selectedColor": "#28f0ae"
-              },
-              "smallMap": {},
-              "export": {
-                "enabled": true,
-                "position": "bottom-right"
-              }
-            }}
-          />
-        }
+        { loaded && <WorldMap2 /> }
+        <br />
       </Container>
     </div>
     )

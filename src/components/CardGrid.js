@@ -28,6 +28,7 @@ class CardGrid extends Component {
         siteData.map((hash) => (
         <Card
           className='cards'
+          href={hash.url}
           image={hash.image}
           header={hash.name}
           meta={hash.tags}
@@ -37,25 +38,25 @@ class CardGrid extends Component {
             <FacebookShareButton
               url={hash.url}
               quote={hash.name}
-              className="Demo__some-network__share-button">
+              className="Fb_share-button">
               <Icon name='facebook f' />
             </FacebookShareButton>
             <TwitterShareButton
               url={hash.url}
               title={hash.title}
-              className="Demo__some-network__share-button">
+              className="Tw_share-button">
               <Icon name='twitter' />
             </TwitterShareButton>
             <LinkedinShareButton
               url={hash.url}
               title={hash.title}
-              className="Demo__some-network__share-button">
+              className="Lin_share-button">
               <Icon name='linkedin' />
             </LinkedinShareButton>
             <EmailShareButton
               url={hash.url}
               title={hash.title}
-              className="Demo__some-network__share-button">
+              className="Em_share-button">
               <Icon name='mail outline' />
             </EmailShareButton>
           </div>}
