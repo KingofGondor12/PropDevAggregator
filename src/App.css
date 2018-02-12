@@ -1,5 +1,11 @@
 div#__AmCharts_React_1__ {
   margin-top: 2em;
+  border-radius: 15px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
+  transform: none;
 }
 
 .ui.category.search>.results .category .result:hover, .ui.search>.results .result:hover {
