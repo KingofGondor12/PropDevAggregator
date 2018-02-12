@@ -7,20 +7,23 @@ import {
         Search,
         Label,
         Image,
-        Loader
+        Loader,
+        Divider
       } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
 // Child Components
 import CardGrid from './components/CardGrid';
+import WorldMap from './components/WorldMap';
 // API/Axios
 import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
-// World Map SVG
-import WorldMap from './components/WorldMap';
 // Q1ClearTitle
 import Q1ClearTitle from './images/Q1ClearTitle.png';
+// amCharts
+import AmCharts from "@amcharts/amcharts3-react";
+import 'ammap3/ammap/ammap.js';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -59,25 +62,52 @@ render() {
 
   return (
     <div>
-        <Container>
-          <Image className='Q1Title' centered src={Q1ClearTitle} />
-          <Search
-              input={{fluid: true}}
-              size={'large'}
-              loading={isLoading}
-              onResultSelect={this.handleResultSelect}
-              onSearchChange={this.handleSearchChange}
-              resultRenderer={resultRenderer}
-              results={results}
-              value={value}
-              placeholder='Search...'
-              {...this.props}
-            />
-         <br />
-         { !loaded && <Loader active size={'large'}>Loading</Loader> }
-        <CardGrid siteData={siteData} />
+      <Container>
+        <Image className='Q1Title' centered src={Q1ClearTitle} />
+        <Search
+            input={{fluid: true}}
+            size={'large'}
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={this.handleSearchChange}
+            resultRenderer={resultRenderer}
+            results={results}
+            value={value}
+            placeholder='Search...'
+            {...this.props}
+          />
         <br />
-        <WorldMap className='WorldMap' />
+        { !loaded && <Loader active size={'large'}>Loading</Loader> }
+      <CardGrid siteData={siteData} />
+        <br />
+        {/* { loaded && <WorldMap className='WorldMap' /> } */}
+        { loaded && 
+          <AmCharts.React
+            style={{
+              width: "100%",
+              height: "500px"
+            }}
+            options={{
+              "type": "map",
+              "theme": "light",
+              "projection": "miller",
+
+              "dataProvider": {
+                "map": "worldLow",
+                "getAreasFromMap": true
+              },
+              "areasSettings": {
+                "autoZoom": true,
+                "selectedColor": "#28f0ae"
+              },
+              "smallMap": {},
+              "export": {
+                "enabled": true,
+                "position": "bottom-right"
+              }
+            }}
+          />
+        }
       </Container>
     </div>
     )
