@@ -1,5 +1,56 @@
-.WorldMap {
-  width: 100px;
+.ui.four.cards>.card {
+  -webkit-box-shadow: 0 1px 1px 0 #d4d4d5, 0 1px 2px 1px #d4d4d5;
+  transition: 0.2s ease;
+}
+
+.ui.four.cards>.card:hover {
+  -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24), 0 15px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ui.label, .ui.labels .label {
+  font-size: 1.1rem;
+  margin: 0 0.5em;
+  width: 100%;
+  background: rgb(245, 245, 245);
+  text-align: right;
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ui.search>.results .result {
+padding: 0.5em 0.5em;
+}
+
+.ui.search>.results .result .image {
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ui.search>.results .result .image img {
+  height: auto;
+}
+
+.ui.search>.results {
+  width: 25em;
+}
+
+.ui.card.cards {
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ui.card>:first-child, .ui.cards>.card>:first-child {
+  border-radius: 0 !important;
+  border-top-right-radius: 12px !important;
+  transition: 0.2s ease;
+}
+
+.ui.card>:first-child:hover, .ui.cards>.card>:first-child:hover {
+  transition: 0.2s ease;
+  filter:sepia(25%);
 }
 
 .cardSocialIcons {
@@ -7,4 +58,10 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cardSocialIcons i:hover {
+  transition: 0.2s ease;
+  color: rgb(255, 0, 157);
 }

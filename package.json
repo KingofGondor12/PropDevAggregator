@@ -1,11 +1,9 @@
 {
-  "name": "q1d-semui_agro",
+  "name": "Q1_Design_PropDev",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "cors": "^2.8.4",
-    "faker": "^4.1.0",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -13,15 +11,12 @@
     "react-share": "^2.0.0",
     "semantic-ui-css": "^2.2.14",
     "semantic-ui-react": "^0.78.2",
-    "svgr": "^1.8.1"
+    "@amcharts/amcharts3-react": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "react-svg-loader": "^2.1.0"
   }
 }
