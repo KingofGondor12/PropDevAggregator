@@ -25,9 +25,12 @@ import Q1ClearTitle from './images/Q1ClearTitle.png';
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
   return (
-    <div><a href={url}>
-      <Image src={image} />
-      <Label content={name} />
+    <div class="ui link items">
+      <a class="item" href={url} target="_blank">
+        <div class="ui huge image">
+          <img src={image} />
+        </div>
+        <Label content={name} />
       </a>
     </div>
   )
