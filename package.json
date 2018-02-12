@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts3-react": "^3.0.0",
+    "ammap3": "^3.21.12",
     "axios": "^0.17.1",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
@@ -10,8 +12,7 @@
     "react-scripts": "1.1.0",
     "react-share": "^2.0.0",
     "semantic-ui-css": "^2.2.14",
-    "semantic-ui-react": "^0.78.2",
-    "@amcharts/amcharts3-react": "^3.0.0"
+    "semantic-ui-react": "^0.78.2"
   },
   "scripts": {
     "start": "react-scripts start",
