@@ -13,13 +13,13 @@ import {
 import './App.css';
 // Child Components
 import CardGrid from './components/CardGrid';
-import WorldMap2 from './components/WorldMap2';
+import WorldMap from './components/WorldMap';
 // API/Axios
 import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
 // Q1ClearTitle
-import Q1ClearTitle from './images/Q1ClearTitle2.png';
+import Q1ClearTitle from './images/Q1ClearTitle.png';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -76,8 +76,7 @@ render() {
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
       <CardGrid siteData={siteData} />
         <br />
-        {/* { loaded && <WorldMap className='WorldMap' /> } */}
-        { loaded && <WorldMap2 /> }
+        { loaded && <WorldMap /> }
         <br />
       </Container>
     </div>
@@ -123,7 +122,7 @@ render() {
       if (this.state.value.length < 1) return this.resetComponent()
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.name, result.tags)
+      const isMatch = result => re.test(result.name.concat(result.tag))
 
       this.setState({
         isLoading: false,
