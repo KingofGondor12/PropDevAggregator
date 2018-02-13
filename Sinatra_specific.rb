@@ -106,7 +106,7 @@ get '/' do
 
   off_plan_count_marina = 0
   @off_plan_titles_marina.each do |title|
-    results << {name: title, image: @off_plan_images_marina[off_plan_count_marina].value, url: @off_plan_links_marina[off_plan_count_marina].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_marina[off_plan_count_marina].value, url: @off_plan_links_marina[off_plan_count_marina].value, tag: ["Dubai", "United Arab Emirate", "Middle-East"]}
     off_plan_count_marina = off_plan_count_marina + 1
   end
 
@@ -138,7 +138,7 @@ get '/' do
 
   off_plan_count_downtown = 0
   @off_plan_titles_downtown.each do |title|
-    results << {name: title, image: @off_plan_images_downtown[off_plan_count_downtown].value, url: @off_plan_links_downtown[off_plan_count_downtown].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_downtown[off_plan_count_downtown].value, url: @off_plan_links_downtown[off_plan_count_downtown].value, tag: ["Dubai", "United Arab Emirate", "Middle-East"]}
     off_plan_count_downtown = off_plan_count_downtown + 1
   end
 
@@ -170,7 +170,7 @@ get '/' do
 
   off_plan_count_dubailand = 0
   @off_plan_titles_dubailand.each do |title|
-    results << {name: title, image: @off_plan_images_dubailand[off_plan_count_dubailand].value, url: @off_plan_links_dubailand[off_plan_count_dubailand].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_dubailand[off_plan_count_dubailand].value, url: @off_plan_links_dubailand[off_plan_count_dubailand].value, tag: ["Dubai", "United Arab Emirate", "Middle-East"]}
     off_plan_count_dubailand = off_plan_count_dubailand + 1
   end
 
