@@ -43,13 +43,13 @@ const resultRenderer = ({ name, image, url }) => {
 
 class App extends Component {
 
-state = {
-  siteData: [],
-  isLoading: false,
-  value: '',
-  results: [],
-  loaded: null
-}
+  state = {
+    siteData: [],
+    isLoading: false,
+    value: '',
+    results: [],
+    loaded: null
+  }
 
 render() {
 
@@ -74,7 +74,10 @@ render() {
           />
         <br />
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
-      <CardGrid siteData={siteData} />
+        {
+          results ? <CardGrid siteData={results} /> : <CardGrid siteData={siteData} />
+        }
+
         <br />
         {/* { loaded && <WorldMap className='WorldMap' /> } */}
         { loaded && <WorldMap2 /> }
@@ -85,7 +88,9 @@ render() {
   }
 
   componentWillMount() {
-    this.setState({loaded: false})
+    this.setState({
+      loaded: false
+    })
     // Grab out messages from the API
     api.get('/').then((response) => {
       // Everything worked, response.data is our array of messages
