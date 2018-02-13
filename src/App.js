@@ -1,6 +1,7 @@
 // React Components
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import ScrollableAnchor from 'react-scrollable-anchor'
 // Semantic.ui React Components
 import {
         Container,
@@ -13,13 +14,13 @@ import {
 import './App.css';
 // Child Components
 import CardGrid from './components/CardGrid';
-import WorldMap2 from './components/WorldMap2';
+import WorldMap from './components/WorldMap';
 // API/Axios
 import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
 // Q1ClearTitle
-import Q1ClearTitle from './images/Q1ClearTitle2.png';
+import Q1ClearTitle from './images/Q1ClearTitle.png';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -60,18 +61,20 @@ render() {
     <div>
       <Container>
         <Image className='Q1Title' centered src={Q1ClearTitle} />
-        <Search
-            input={{fluid: true}}
-            size={'large'}
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={this.handleSearchChange}
-            resultRenderer={resultRenderer}
-            results={results}
-            value={value}
-            placeholder='Search...'
-            {...this.props}
-          />
+        <ScrollableAnchor id={"search"}>
+          <Search
+              input={{fluid: true}}
+              size={'large'}
+              loading={isLoading}
+              onResultSelect={this.handleResultSelect}
+              onSearchChange={this.handleSearchChange}
+              resultRenderer={resultRenderer}
+              results={results}
+              value={value}
+              placeholder='Search...'
+              {...this.props}
+            />
+          </ScrollableAnchor>
         <br />
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
         {
@@ -79,8 +82,7 @@ render() {
         }
 
         <br />
-        {/* { loaded && <WorldMap className='WorldMap' /> } */}
-        { loaded && <WorldMap2 /> }
+        { loaded && <WorldMap /> }
         <br />
       </Container>
     </div>

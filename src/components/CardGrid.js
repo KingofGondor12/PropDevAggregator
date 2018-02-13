@@ -31,7 +31,6 @@ class CardGrid extends Component {
           href={hash.url}
           image={hash.image}
           header={hash.name}
-          meta={hash.tags}
           description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum amet sapiente, dicta tempora eum dolores odio. Illum doloribus magnam nostrum.'
           extra={
           <div className="cardSocialIcons" align='center'>
