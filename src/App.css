@@ -1,3 +1,56 @@
+.centered {
+  text-align: center;
+}
+
+.amcharts-bg {
+  fill: url(#sample);
+}
+
+.dubaiDesc {
+  text-align: center;
+  padding: 10%;
+  background: url(https://images.kojaro.com/2016/1/ce456dd9-4e83-4581-b891-c7150c52ebb3.jpg);
+  background-size: cover;
+  color:white;
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+  text-shadow: 0px 2px 3px rgba(0,0,0,0.6),
+               0px 4px 13px rgba(0,0,0,0.2),
+               0px 9px 23px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24), 0 15px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sydDesc {
+  text-align: center;
+  padding: 10%;
+  background: url(https://www.flightcentre.com.au/cms_images/web_images/blog/fc/sydney-bridge.jpg);
+  background-size: cover;
+  color:white;
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+  text-shadow: 0px 2px 3px rgba(0,0,0,0.6),
+               0px 4px 13px rgba(0,0,0,0.2),
+               0px 9px 23px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24), 0 15px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.beijingDesc {
+  text-align: center;
+  padding: 10%;
+  background: url(http://www.hoganlovells.com/~/media/hogan-lovells/images/miscellaneous-images/istock_67371095_xxxlarge_700x425.jpg);
+  background-size: cover;
+  color:white;
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+  text-shadow: 0px 2px 3px rgba(0,0,0,0.6),
+               0px 4px 13px rgba(0,0,0,0.2),
+               0px 9px 23px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24), 0 15px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
 div#__AmCharts_React_1__ {
   margin-top: 2em;
   border-radius: 15px;
