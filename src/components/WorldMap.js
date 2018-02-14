@@ -5,22 +5,34 @@ import AmCharts from "@amcharts/amcharts3-react";
 class WorldMap extends Component {
 
   render() {
-
+    var currentObject;
     var config = {
           "type": "map",
 					"pathToImages": "http://www.amcharts.com/lib/3/images/",
 					"addClassNames": true,
           "defs": {
-            "linearGradient": {
-              "id": "sample",
+            "linearGradient": [
+              {
+              "id": "bg",
                 "stop": [{
                   "offset": "0%",
                   "stop-color": "#2D7FBB"
                 },{
                   "offset": "100%",
-                  "stop-color": "#abdbff"
+                  "stop-color": "#dbedff"
                 }]
-            }
+            },
+            {
+            "id": "sample2",
+              "stop": [{
+                "offset": "0%",
+                "stop-color": "#0093ff"
+              },{
+                "offset": "100%",
+                "stop-color": "#00950b"
+              }]
+            },
+          ],
           },
 					"fontSize": 15,
 					"color": "#FFFFFF",
@@ -38,14 +50,13 @@ class WorldMap extends Component {
 							},
               {
 								"selectable": true,
-								"title": "Australia",
+                title: "<a href='#search'><div class='sydDesc'><h1>Australia</h1><h3>Click to view all articles and resources related to this location.</h3></div></a>",
 								"longitude": 151.209444,
 								"latitude": -33.865,
 								"svgPath": "M3.5,13.277C3.5,6.22,9.22,0.5,16.276,0.5C23.333,0.5,29.053,6.22,29.053,13.277C29.053,14.54,28.867,15.759,28.526,16.914C26.707,24.271,16.219,32.5,16.219,32.5C16.219,32.5,4.37,23.209,3.673,15.542C3.673,15.542,3.704,15.536,3.704,15.536C3.572,14.804,3.5,14.049,3.5,13.277C3.5,13.277,3.5,13.277,3.5,13.277M16.102,16.123C18.989,16.123,21.329,13.782,21.329,10.895C21.329,8.008,18.989,5.668,16.102,5.668C13.216,5.668,10.876,8.008,10.876,10.895C10.876,13.782,13.216,16.123,16.102,16.123C16.102,16.123,16.102,16.123,16.102,16.123",
-								"color": "rgba(255, 113, 113, 1)",
+								"color": "rgba(255, 102, 145, 1)",
 								"scale": 1,
-                title: "<div class='centered'><h2>Sydney</h2></div>",
-                description: "<a href='#search'><div class='sydDesc'><h3>Click to view all articles and resources related to this location.</h3></div></a>"
+                "myUrl": "#search"
 							},
 							{
 								"selectable": true,
@@ -53,10 +64,10 @@ class WorldMap extends Component {
 								"longitude": 116.383333,
 								"latitude": 39.916667,
 								"svgPath": "M3.5,13.277C3.5,6.22,9.22,0.5,16.276,0.5C23.333,0.5,29.053,6.22,29.053,13.277C29.053,14.54,28.867,15.759,28.526,16.914C26.707,24.271,16.219,32.5,16.219,32.5C16.219,32.5,4.37,23.209,3.673,15.542C3.673,15.542,3.704,15.536,3.704,15.536C3.572,14.804,3.5,14.049,3.5,13.277C3.5,13.277,3.5,13.277,3.5,13.277M16.102,16.123C18.989,16.123,21.329,13.782,21.329,10.895C21.329,8.008,18.989,5.668,16.102,5.668C13.216,5.668,10.876,8.008,10.876,10.895C10.876,13.782,13.216,16.123,16.102,16.123C16.102,16.123,16.102,16.123,16.102,16.123",
-								"color": "rgba(255, 113, 113, 1)",
+								"color": "rgba(255, 102, 145, 1)",
 								"scale": 1,
-                title: "<div class='centered'><h2>Beijing</h2></div>",
-                description: "<a href='#search'><div class='beijingDesc'><h3>Click to view all articles and resources related to this location.</h3></div></a>"
+                title: "<a href='#search'><div class='beijingDesc'><h1>China</h1><h3>Click to view all articles and resources related to this location.</h3></div></a>",
+                "myUrl": "#search"
 							},
 							{
 								"selectable": true,
@@ -64,22 +75,21 @@ class WorldMap extends Component {
 								"longitude": 55.297222,
 								"latitude": 25.263056,
 								"svgPath": "M3.5,13.277C3.5,6.22,9.22,0.5,16.276,0.5C23.333,0.5,29.053,6.22,29.053,13.277C29.053,14.54,28.867,15.759,28.526,16.914C26.707,24.271,16.219,32.5,16.219,32.5C16.219,32.5,4.37,23.209,3.673,15.542C3.673,15.542,3.704,15.536,3.704,15.536C3.572,14.804,3.5,14.049,3.5,13.277C3.5,13.277,3.5,13.277,3.5,13.277M16.102,16.123C18.989,16.123,21.329,13.782,21.329,10.895C21.329,8.008,18.989,5.668,16.102,5.668C13.216,5.668,10.876,8.008,10.876,10.895C10.876,13.782,13.216,16.123,16.102,16.123C16.102,16.123,16.102,16.123,16.102,16.123",
-								"color": "rgba(255, 113, 113, 1)",
+								"color": "rgba(255, 102, 145, 1)",
 								"scale": 1,
-                title: "<div class='centered'><h2>Dubai</h2></div>",
-                description: "<a href='#search'><div class='dubaiDesc'><h3>Click to view all articles and resources related to this location.</h3></div></a>"
+                title: "<a href='#search'><div class='dubaiDesc'><h1>Dubai & UAE</h1><h3>Click to view all articles and resources related to this location.</h3></div></a>",
+                "myUrl": "#search"
 							}
 						]
 					},
           "balloon": {
+            "color": "#000",
             "fontSize": 15,
             "fillAlpha": 1,
-            "shadowAlpha": 0,
-            "cornerRadius": 5,
-            "color": "#FFF",
-            "fillColor": "#333",
-            "adjustBorderColor": true,
-            "borderColor": "#333"
+            "shadowAlpha": 0.25,
+            "cornerRadius": 10,
+            "adjustBorderColor": false,
+            "pointerOrientation": "up"
 					},
 					"areasSettings": {
 						"color": "#FFF",
@@ -116,13 +126,23 @@ class WorldMap extends Component {
 						"bottom": 30,
 						"minZoomLevel": 0.5,
 						"gridHeight": 100,
-						"gridAlpha": 0.1,
+						"gridAlpha": 0.5,
 						"gridBackgroundAlpha": 0,
 						"gridColor": "#FFFFFF",
 						"draggerAlpha": 1,
 						"buttonCornerRadius": 2
 					},
-          "smallMap": {}
+          "smallMap": {},
+          "listeners": [ {
+            "event": "clickMapObject",
+            "method": function( event ) {
+                window.location.href = event.mapObject.myUrl;
+            }
+          }]
+    }
+
+    function clickObject( id ) {
+      config.clickMapObject( config.getObjectById( id ) );
     }
 
     return (
