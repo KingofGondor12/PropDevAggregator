@@ -42,7 +42,7 @@ get '/' do
 
   off_plan_count_twi = 0
   @off_plan_titles_twi.each do |title|
-    results << {name: title, image: @off_plan_images_twi[off_plan_count_twi].value, url: @off_plan_links_twi[off_plan_count_twi].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_twi[off_plan_count_twi].value, url: @off_plan_links_twi[off_plan_count_twi].value, tag: ["dubai", "United Arab Emirates", "Middle-East"]}
     off_plan_count_twi = off_plan_count_twi + 1
   end
 
@@ -74,7 +74,7 @@ get '/' do
 
   off_plan_count_szr = 0
   @off_plan_titles_szr.each do |title|
-    results << {name: title, image: @off_plan_images_szr[off_plan_count_szr].value, url: @off_plan_links_szr[off_plan_count_szr].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_szr[off_plan_count_szr].value, url: @off_plan_links_szr[off_plan_count_szr].value, tag: ["dubai", "United Arab Emirates", "Middle-East"]}
     off_plan_count_szr = off_plan_count_szr + 1
   end
 
@@ -106,7 +106,7 @@ get '/' do
 
   off_plan_count_marina = 0
   @off_plan_titles_marina.each do |title|
-    results << {name: title, image: @off_plan_images_marina[off_plan_count_marina].value, url: @off_plan_links_marina[off_plan_count_marina].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_marina[off_plan_count_marina].value, url: @off_plan_links_marina[off_plan_count_marina].value, tag: ["Dubai", "United Arab Emirates", "Middle-East"]}
     off_plan_count_marina = off_plan_count_marina + 1
   end
 
@@ -138,7 +138,7 @@ get '/' do
 
   off_plan_count_downtown = 0
   @off_plan_titles_downtown.each do |title|
-    results << {name: title, image: @off_plan_images_downtown[off_plan_count_downtown].value, url: @off_plan_links_downtown[off_plan_count_downtown].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_downtown[off_plan_count_downtown].value, url: @off_plan_links_downtown[off_plan_count_downtown].value, tag: ["Dubai", "United Arab Emirates", "Middle-East"]}
     off_plan_count_downtown = off_plan_count_downtown + 1
   end
 
@@ -170,7 +170,7 @@ get '/' do
 
   off_plan_count_dubailand = 0
   @off_plan_titles_dubailand.each do |title|
-    results << {name: title, image: @off_plan_images_dubailand[off_plan_count_dubailand].value, url: @off_plan_links_dubailand[off_plan_count_dubailand].value, tag: ["dubai", "United Arab Emirate", "Middle-East"]}
+    results << {name: title, image: @off_plan_images_dubailand[off_plan_count_dubailand].value, url: @off_plan_links_dubailand[off_plan_count_dubailand].value, tag: ["Dubai", "United Arab Emirates", "Middle-East"]}
     off_plan_count_dubailand = off_plan_count_dubailand + 1
   end
 
@@ -209,6 +209,43 @@ get '/' do
   @urban_titles.each do |title|
     results << {name: title, image: @urban_images[urban_count].value, url: @urban_links[urban_count], tag: ["Australia", "Oceania"]}
     urban_count = urban_count + 1
+  end
+
+  # RIS Media
+
+  @ris = Nokogiri::HTML(open("http://rismedia.com/category/news/"))
+
+  @ris_title_search = @ris.xpath('//div[@id="left-area"]/article/h2[@class="entry-title"]/a')
+  @ris_image_search = @ris.xpath('//div[@id="left-area"]/article//img/@src')
+  @ris_link_search = @ris.xpath('//div[@id="left-area"]/article/a/@href')
+
+  @ris_titles = []
+
+  @ris_title_search.each do |div|
+    @ris_titles << div.inner_text.gsub(/[^a-zA-Z0-9. ]/, '').squeeze(" ").strip
+  end
+
+  @ris_images = []
+
+  @ris_image_search.each do |img|
+    if img.content.slice(0, 4) == "http"
+      @ris_images << img
+    end
+  end
+
+  @ris_links = []
+
+  @ris_link_search.each do |link|
+    if link.value.slice(0, 4) != "http"
+      link = link.value.insert(0, "https://rismedia.com")
+    end
+    @ris_links << link
+  end
+
+  ris_count = 0
+  @ris_titles.each do |title|
+    results << {name: title, image: @ris_images[ris_count].value, url: @ris_links[ris_count], tag: ["America", "United States", "United States of America", "North America"]}
+    ris_count = ris_count + 1
   end
 
   return results.to_json
