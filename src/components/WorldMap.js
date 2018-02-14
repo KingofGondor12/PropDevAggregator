@@ -16,10 +16,13 @@ class WorldMap extends Component {
               "id": "bg",
                 "stop": [{
                   "offset": "0%",
-                  "stop-color": "#4ea5e6"
+                  "stop-color": "#327ede"
+                },{
+                  "offset": "25%",
+                  "stop-color": "#5795e3"
                 },{
                   "offset": "100%",
-                  "stop-color": "#baddff"
+                  "stop-color": "#d7e9ff"
                 }]
             },
             {
@@ -40,7 +43,7 @@ class WorldMap extends Component {
 					"fontSize": 15,
 					"color": "#FFFFFF",
 					"projection": "miller",
-          "backgroundAlpha": 1,
+          "backgroundAlpha": 0.9,
 					"dataProvider": {
 						"map": "worldLow",
 						"getAreasFromMap": true,
