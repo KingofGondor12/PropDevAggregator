@@ -8,6 +8,35 @@
   fill: url(#bg);
 }
 
+.amcharts-map-area-US {
+  fill: url(#sample2);
+}
+
+.amcharts-map-area-AE {
+  fill: url(#sample2);
+}
+
+.amcharts-map-area-AU {
+  fill: url(#sample2);
+}
+
+.amcharts-map-area-CN {
+  fill: url(#sample2);
+}
+
+.usaDesc {
+  font-weight: lighter;
+  text-align: center;
+  padding: 10%;
+  background: url(http://www.1zoom.me/big2/34/77804-y0P3cf.jpg);
+  background-size: cover;
+  color:white;
+  border-radius: 10px;
+  text-shadow: 0px 2px 3px rgba(0,0,0,0.6),
+               0px 4px 13px rgba(0,0,0,0.2),
+               0px 9px 23px rgba(0,0,0,0.2);
+}
+
 .dubaiDesc {
   text-align: center;
   padding: 10%;
