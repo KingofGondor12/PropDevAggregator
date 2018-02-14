@@ -28,7 +28,7 @@ const resultRenderer = ({ name, image, url }) => {
     <div class="ui link items">
       <a class="item" href={url} target="_blank">
         <div class="ui huge image">
-          <img src={image} />
+          <img src={image} alt=''/>
         </div>
         <Label content={name} />
       </a>
@@ -68,7 +68,7 @@ render() {
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               onSearchChange={this.handleSearchChange}
-              resultRenderer={resultRenderer}
+              open={false}
               results={results}
               value={value}
               placeholder='Search...'
@@ -82,7 +82,7 @@ render() {
         }
 
         <br />
-        { loaded && <WorldMap /> }
+        { loaded && <WorldMap handleMapObjectClick={this.handleMapObjectClick} /> }
         <br />
       </Container>
     </div>
@@ -120,11 +120,16 @@ render() {
     console.log(result)
   }
 
+  handleMapObjectClick = ( event ) => {
+    this.setState({
+      value: event.mapObject.title
+    })
+  }
+
   handleSearchChange = (e, { value }) => {
     this.setState({
       isLoading: true, value
-    }
-  )
+    })
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent()
