@@ -122,9 +122,23 @@ render() {
 
   handleMapObjectClick = ( event ) => {
     this.setState({
+      isLoading: true,
       value: event.mapObject.title
     })
+
+    setTimeout(() => {
+      if (this.state.value.length < 1) return this.resetComponent()
+
+      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
+      const isMatch = result => re.test(result.name.concat(result.tag))
+
+      this.setState({
+        isLoading: false,
+        results: _.filter(this.state.siteData, isMatch)
+      })
+    }, 500)
   }
+
 
   handleSearchChange = (e, { value }) => {
     this.setState({
