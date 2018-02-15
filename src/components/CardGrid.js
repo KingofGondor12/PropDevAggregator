@@ -29,6 +29,7 @@ class CardGrid extends Component {
         <Card
           className='cards'
           href={hash.url}
+          target='_blank'
           image={hash.image}
           header={hash.name}
           description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum amet sapiente, dicta tempora eum dolores odio. Illum doloribus magnam nostrum.'
