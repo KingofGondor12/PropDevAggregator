@@ -1,19 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Lobster|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
 
 h2 {
   font-family: 'Lobster', sans-serif;
   font-weight: lighter;
-  /* text-shadow: 0px 2px 3px rgba(0,0,0,0.6),
-               0px 4px 13px rgba(0,0,0,0.2),
-               0px 9px 23px rgba(0,0,0,0.2); */
 }
 
 h4 {
   font-family: 'Raleway', sans-serif;
   font-weight: lighter;
-  /* text-shadow: 0px 2px 2px rgba(0,0,0,1),
-               0px 4px 4px rgba(0,0,0,0.8),
-               0px 6px 10px rgba(0,0,0,0.8); */
 }
 
 .centered {
