@@ -8,35 +8,40 @@ class WorldMap extends Component {
     var config = {
           "type": "map",
 					"pathToImages": "http://www.amcharts.com/lib/3/images/",
+          fontFamily: "Lobster",
 					"addClassNames": true,
           "defs": {
             "linearGradient": [
               {
-              "id": "bg",
+              "id": "map_background",
                 "stop": [{
                   "offset": "0%",
-                  "stop-color": "#2D7FBB"
+                  "stop-color": "#3d599d"
                 },{
                   "offset": "100%",
-                  "stop-color": "#dbedff"
+                  "stop-color": "#e9ebf2"
                 }]
             },
             {
-            "id": "sample2",
+            "id": "country_gradient",
               "stop": [{
                 "offset": "0%",
-                "stop-color": "#0093ff"
+                "stop-color": "#ff4b7e"
+              },{
+                "offset": "50%",
+                "stop-color": "#ff5a4b"
               },{
                 "offset": "100%",
-                "stop-color": "#00950b"
-              }]
+                "stop-color": "#ff9318"
+              }],
             },
           ],
           },
 					"fontSize": 15,
-					"color": "#FFFFFF",
+					"color": "#000",
+          backgroundColor: "#7e7e7e",
 					"projection": "miller",
-          "backgroundAlpha": 1,
+          "backgroundAlpha": 0.9,
 					"dataProvider": {
 						"map": "worldLow",
 						"getAreasFromMap": true
