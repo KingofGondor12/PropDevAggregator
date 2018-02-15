@@ -28,6 +28,7 @@ class CardGrid extends Component {
         siteData.map((hash) => (
         <Card
           className='cards'
+          target='_blank'
           href={hash.url}
           target='_blank'
           image={hash.image}

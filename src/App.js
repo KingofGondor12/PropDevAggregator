@@ -81,12 +81,21 @@ render() {
             <Button href="#Q1Map">WorldMap</Button>
         <br />
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
+<<<<<<< HEAD
       <CardGrid siteData={siteData} />
         { loaded &&
           <div>
             <Image id='Q1Map' centered src={Q1WorldTitle} />
             <WorldMap config={this.config} />
           </div> }
+=======
+        {
+          results ? <CardGrid siteData={results} /> : <CardGrid siteData={siteData} />
+        }
+
+        <br />
+        { loaded && <WorldMap handleMapObjectClick={this.handleMapObjectClick} /> }
+>>>>>>> parent of 99b8cd0... Added auto-top-scroll
         <br />
       </Container>
     </div>
@@ -140,7 +149,6 @@ render() {
         results: _.filter(this.state.siteData, isMatch)
       })
     }, 500)
-    window.scrollTo(0, 0)
   }
 
 
@@ -161,6 +169,7 @@ render() {
       })
     }, 500)
   }
+<<<<<<< HEAD
 
   config = {
     "type": "map",
@@ -294,6 +303,8 @@ render() {
     }]
   }
 
+=======
+>>>>>>> parent of 99b8cd0... Added auto-top-scroll
 }
 
 export default App;
