@@ -82,7 +82,7 @@ render() {
         }
 
         <br />
-        { loaded && <WorldMap handleMapObjectClick={this.handleMapObjectClick} /> }
+        { loaded && <WorldMap config={this.config} /> }
         <br />
       </Container>
     </div>
@@ -137,6 +137,7 @@ render() {
         results: _.filter(this.state.siteData, isMatch)
       })
     }, 500)
+    window.scrollTo(0, 0)
   }
 
 
@@ -157,6 +158,97 @@ render() {
       })
     }, 500)
   }
+
+  config = {
+    "type": "map",
+    "pathToImages": "http://www.amcharts.com/lib/3/images/",
+    fontFamily: "Lobster",
+    "addClassNames": true,
+    "zoomOnDoubleClick": false,
+    "dragMap": false,
+    "defs": {
+      "linearGradient": [
+        {
+        "id": "map_background",
+          "stop": [{
+            "offset": "0%",
+            "stop-color": "#3d599d"
+          },{
+            "offset": "100%",
+            "stop-color": "#e9ebf2"
+          }]
+      },
+      {
+      "id": "country_gradient",
+        "stop": [{
+          "offset": "0%",
+          "stop-color": "#ff4b7e"
+        },{
+          "offset": "50%",
+          "stop-color": "#ff5a4b"
+        },{
+          "offset": "100%",
+          "stop-color": "#ff9318"
+        }],
+      },
+    ],
+    },
+    "fontSize": 15,
+    "color": "#000",
+    backgroundColor: "#7e7e7e",
+    "projection": "miller",
+    "backgroundAlpha": 0.9,
+    "dataProvider": {
+      "map": "worldLow",
+      "getAreasFromMap": true
+    },
+    "balloon": {
+      "color": "#000",
+      "fontSize": 15,
+      "fillAlpha": 1,
+      "shadowAlpha": 0.25,
+      "cornerRadius": 10,
+      "adjustBorderColor": false,
+      "pointerOrientation": "up"
+    },
+    "areasSettings": {
+      "color": "#FFF",
+      "outlineColor": 0,
+      "rollOverOutlineColor": 0,
+      "rollOverColor": "#1ccfab",
+      "selectedColor": "#1cc8cf",
+      "selectable": true,
+      "autoZoom": false,
+      "unlistedAreasAlpha": 0,
+      "unlistedAreasOutlineAlpha": 0
+    },
+    "imagesSettings": {
+      "alpha": 1,
+      "color": 0,
+      "outlineAlpha": 0,
+      "rollOverOutlineAlpha": 0,
+      "outlineColor": 0,
+      "rollOverBrightness": 20,
+      "selectedBrightness": 20,
+      "selectable": true
+    },
+    "linesSettings": {
+      "color": 0,
+      "selectable": true,
+      "rollOverBrightness": 20,
+      "selectedBrightness": 20
+    },
+    "zoomControl": {
+      "zoomControlEnabled": false,
+      "homeButtonEnabled": false,
+      "panControlEnabled": false,
+    },
+    "listeners": [{
+      "event": "clickMapObject",
+      "method": this.handleMapObjectClick
+    }]
+  }
+
 }
 
 export default App;
