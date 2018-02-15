@@ -18,22 +18,6 @@ h4 {
   fill: url(#map_background);
 }
 
-.amcharts-map-area-AU {
-  fill: url(#country_gradient);
-  }
-
-.amcharts-map-area-AE {
-  fill: url(#country_gradient);
-}
-
-.amcharts-map-area-CN {
-  fill: url(#country_gradient);
-}
-
-.amcharts-map-area-US {
-  fill: url(#country_gradient);
-}
-
 .US_Map_Info {
   text-align: center;
   padding: 2.5%;
@@ -144,5 +128,5 @@ div#__AmCharts_React_1__ {
 }
 
 .cardSocialIcons i:hover {
-  color: rgb(255, 0, 157);
+  color: #1cc8cf;
 }

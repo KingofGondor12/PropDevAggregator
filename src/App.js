@@ -79,7 +79,7 @@ render() {
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
       <CardGrid siteData={siteData} />
         <br />
-        { loaded && <WorldMap /> }
+        { loaded && <WorldMap handleMapObjectClick={this.handleMapObjectClick} /> }
         <br />
       </Container>
     </div>
@@ -112,8 +112,14 @@ render() {
     this.setState({
       value: result.name
     })
-    console.log(result)
   }
+
+  handleMapObjectClick = ( event ) => {
+    this.setState({
+      value: event.mapObject.customData
+    })
+  }
+
 
   handleSearchChange = (e, { value }) => {
     this.setState({
