@@ -16,10 +16,10 @@ class WorldMap extends Component {
               "id": "map_background",
                 "stop": [{
                   "offset": "0%",
-                  "stop-color": "#5b7080"
+                  "stop-color": "#52626e"
                 },{
                   "offset": "100%",
-                  "stop-color": "#d2e1ed"
+                  "stop-color": "#d9dee2"
                 }]
               }
             ]
@@ -92,7 +92,7 @@ class WorldMap extends Component {
   						"rollOverBrightness": 5,
   						"selectable": false,
               "selectedColor": "#1cc8cf",
-              "autoZoom": true
+              "autoZoom": false
   					},
   					"areasSettings": {
   						"color": "#FFF",
@@ -102,7 +102,7 @@ class WorldMap extends Component {
   						"rollOverOutlineAlpha": 0.5,
   						"rollOverBrightness": 5,
   						"selectable": false,
-              "autoZoom": true,
+              "autoZoom": false,
   						"unlistedAreasAlpha": 0,
   						"unlistedAreasOutlineAlpha": 0
   					},
@@ -119,7 +119,7 @@ class WorldMap extends Component {
             "listeners": [{
               "event": "clickMapObject",
               "method": this.props.handleMapObjectClick
-            }]
+              }]
       }
 
     return (

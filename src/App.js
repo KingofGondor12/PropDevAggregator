@@ -8,7 +8,8 @@ import {
         Search,
         Label,
         Image,
-        Loader
+        Loader,
+        Button
       } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
@@ -21,6 +22,8 @@ import {api} from './api/init';
 import _ from 'lodash';
 // Q1ClearTitle
 import Q1ClearTitle from './images/Q1ClearTitle.png';
+import Q1ClearTitleColor from './images/Q1ClearTitleColor.png';
+import Q1WorldTitle from './images/Q1WorldTitle.png';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -60,7 +63,7 @@ render() {
   return (
     <div>
       <Container>
-        <Image className='Q1Title' centered src={Q1ClearTitle} />
+        <Image className='Q1Title' centered src={Q1ClearTitleColor} />
         <ScrollableAnchor id={"search"}>
           <Search
               input={{fluid: true}}
@@ -74,12 +77,15 @@ render() {
               placeholder='Search...'
               {...this.props}
             />
-          </ScrollableAnchor>
+          </ScrollableAnchor><Button href="#Q1Map">WorldMap</Button>
         <br />
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
       <CardGrid siteData={siteData} />
-        <br />
-        { loaded && <WorldMap handleMapObjectClick={this.handleMapObjectClick} /> }
+        { loaded &&
+          <div>
+            <Image id='Q1Map' centered src={Q1WorldTitle} />
+            <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
+          </div> }
         <br />
       </Container>
     </div>
