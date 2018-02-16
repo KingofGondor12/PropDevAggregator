@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
 
+hr {
+  border: 0;
+  width: 60%;
+  height: 1px;
+  left: 10px;
+  position: relative;
+  opacity: 0.5;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #0c0b0b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #0c0b0b, #f0f0f0);
+  top: 12px;
+  margin: 0px auto 10px;
+}
+
 h2 {
   font-family: 'Lobster', sans-serif;
   font-weight: lighter;
@@ -8,6 +21,20 @@ h2 {
 h4 {
   font-family: 'Raleway', sans-serif;
   font-weight: lighter;
+}
+
+.ui.animated.button .hidden.content {
+  margin-top: -10px;
+}
+
+.buttonMenu {
+  margin-top: -4px;
+  display: flex;
+  justify-content: center;
+}
+
+.ui.borderless.menu {
+  margin: 0 !important;
 }
 
 .centered {

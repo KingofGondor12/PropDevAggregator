@@ -36,7 +36,6 @@ class WorldMap extends Component {
           							{
                           id: "AE",
                           customData: "Dubai",
-                          "autoZoom": true,
                           color: "#1cc8cf",
                           url: "#search",
                           title: "<a href='#search'><div class='AE_Map_Info'><h2>Dubai & UAE</h2><h4>Click to view all articles and resources related to this location.</h4></div></a>",
