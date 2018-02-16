@@ -248,6 +248,47 @@ get '/' do
     ris_count = ris_count + 1
   end
 
+  # Curbed
+
+  @curbed = Nokogiri::HTML(open("https://www.curbed.com/"))
+
+  @curbed_title_search = @curbed.xpath('//body/div[3]/div[6]//div[@class="c-compact-river"]/div/div[@class="c-entry-box--compact c-entry-box--compact--article"]//h2/a')
+  @curbed_image_search = @curbed.xpath('//body/div[3]/div[6]//div[@class="c-compact-river"]/div/div[@class="c-entry-box--compact c-entry-box--compact--article"]/a//img/@src')
+  @curbed_link_search = @curbed.xpath('//body/div[3]/div[6]//div[@class="c-compact-river"]/div/div[@class="c-entry-box--compact c-entry-box--compact--article"]/a/@href')
+  @curbed_teaser_search = @curbed.xpath('//body/div[3]/div[6]//div[@class="c-compact-river"]/div/div[@class="c-entry-box--compact c-entry-box--compact--article"]//p')
+
+  @curbed_titles = []
+
+  @curbed_title_search.each do |div|
+    @curbed_titles << div.inner_text.gsub(/[^a-zA-Z0-9. ]/, '').squeeze(" ").strip
+  end
+
+  @curbed_images = []
+
+  @curbed_image_search.each do |img|
+    if img.content.slice(0, 4) == "http"
+      @curbed_images << img
+    end
+  end
+
+  @curbed_links = []
+
+  @curbed_link_search.each do |link|
+    @curbed_links << link
+  end
+
+  @curbed_teasers = []
+
+  @curbed_title_search.each do |para|
+    @curbed_teasers << para.inner_text.gsub(/[^a-zA-Z0-9. ]/, '').squeeze(" ").strip
+  end
+
+  curbed_count = 0
+  @curbed_titles.each do |title|
+    results << {name: title, image: @curbed_images[curbed_count].value, teaser: @curbed_teasers[curbed_count], url: @curbed_links[curbed_count], tag: ["America", "United States", "United States of America", "North America"]}
+    curbed_count = curbed_count + 1
+  end
+
   return results.to_json
 
 end

@@ -76,29 +76,40 @@ render() {
             onSearchChange={this.handleSearchChange}
             resultRenderer={resultRenderer}
             results={results}
+            open={false}
             value={value}
             placeholder='Search...'
             {...this.props}
           />
-          <hr /><br />
-        <div className="buttonMenu">
-          <Button href="#map" animated={'fade'}>
-            <Button.Content visible>WorldMap</Button.Content>
-            <Button.Content hidden>
-              <Icon name='world' size='large' />
-            </Button.Content>
-          </Button>
-        </div>
-          <hr /><br />
+          { loaded &&
+            <div>
+              <hr />
+              <br />
+              <div className="buttonMenu">
+                <Button href="#map" animated={'fade'}>
+                  <Button.Content visible>
+                    World Map
+                  </Button.Content>
+                  <Button.Content hidden>
+                    <Icon name='world' size='large' />
+                  </Button.Content>
+                </Button>
+              </div>
+            { !isLoading && <hr /> }
+            <br />
+          </div>
+        }
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
-      <CardGrid siteData={siteData} />
+        { !value ? <CardGrid siteData={siteData} /> : <CardGrid siteData={results} />}
         { loaded &&
           <div>
+            <hr />
             <Image centered src={Q1WorldTitle} />
-          <ScrollableAnchor id={"map"}>
-            <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
-          </ScrollableAnchor>
-          </div> }
+            <ScrollableAnchor id={"map"}>
+              <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
+            </ScrollableAnchor>
+          </div>
+        }
         <br />
       </Container>
     )
@@ -138,7 +149,7 @@ render() {
   handleMapObjectClick = ( event ) => {
     this.setState({
       isLoading: true,
-      value: event.mapObject.title
+      value: event.mapObject.customData
     })
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent()

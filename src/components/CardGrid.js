@@ -30,10 +30,9 @@ class CardGrid extends Component {
           className='cards'
           target='_blank'
           href={hash.url}
-          target='_blank'
           image={hash.image}
           header={hash.name}
-          description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum amet sapiente, dicta tempora eum dolores odio. Illum doloribus magnam nostrum.'
+          description={hash.teaser}
           extra={
           <div className="cardSocialIcons" align='center'>
             <FacebookShareButton
