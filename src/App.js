@@ -1,7 +1,8 @@
 // React Components
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import ScrollableAnchor from 'react-scrollable-anchor'
+import ScrollableAnchor from 'react-scrollable-anchor';
+import configureAnchors from 'react-scrollable-anchor';
 // Semantic.ui React Components
 import {
         Container,
@@ -9,8 +10,9 @@ import {
         Label,
         Image,
         Loader,
-        Button
-      } from 'semantic-ui-react';
+        Button,
+        Icon
+       } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
 // Child Components
@@ -21,7 +23,6 @@ import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
 // Q1ClearTitle
-import Q1ClearTitle from './images/Q1ClearTitle.png';
 import Q1ClearTitleColor from './images/Q1ClearTitleColor.png';
 import Q1WorldTitle from './images/Q1WorldTitle.png';
 
@@ -61,34 +62,45 @@ render() {
   const {siteData, isLoading, value, results, loaded } = this.state
 
   return (
-    <div>
       <Container>
-        <ScrollableAnchor id="title">
-          <Image className='Q1Title' centered src={Q1ClearTitleColor} />
+        <ScrollableAnchor id={"search"}>
+          <div></div>
         </ScrollableAnchor>
+        <Image centered src={Q1ClearTitleColor} />
           <Search
-              input={{fluid: true}}
-              size={'large'}
-              loading={isLoading}
-              onResultSelect={this.handleResultSelect}
-              onSearchChange={this.handleSearchChange}
-              open={false}
-              results={results}
-              value={value}
-              placeholder='Search...'
-              {...this.props}
-            />
-            <Button href="#Q1Map">WorldMap</Button>
-        <br />
+            id={'searchbar'}
+            input={{fluid: true}}
+            size={'large'}
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={this.handleSearchChange}
+            resultRenderer={resultRenderer}
+            results={results}
+            value={value}
+            placeholder='Search...'
+            {...this.props}
+          />
+          <hr /><br />
+        <div className="buttonMenu">
+          <Button href="#map" animated={'fade'}>
+            <Button.Content visible>WorldMap</Button.Content>
+            <Button.Content hidden>
+              <Icon name='world' size='large' />
+            </Button.Content>
+          </Button>
+        </div>
+          <hr /><br />
         { !loaded && <Loader active size={'large'}>Loading</Loader> }
-        {
-          results ? <CardGrid siteData={results} /> : <CardGrid siteData={siteData} />
-        }
-        <br />
-        { loaded && <WorldMap handleMapObjectClick={this.handleMapObjectClick} /> }
+      <CardGrid siteData={siteData} />
+        { loaded &&
+          <div>
+            <Image centered src={Q1WorldTitle} />
+          <ScrollableAnchor id={"map"}>
+            <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
+          </ScrollableAnchor>
+          </div> }
         <br />
       </Container>
-    </div>
     )
   }
 
@@ -101,6 +113,7 @@ render() {
       // Everything worked, response.data is our array of messages
       this.setState({siteData: response.data, loaded: true})
       console.log('This is our state:', this.state.siteData)
+      configureAnchors({keepLastAnchorHash: false})
     }).catch(function(error) {
       // Something went wrong
       console.warn(error);
@@ -127,7 +140,6 @@ render() {
       isLoading: true,
       value: event.mapObject.title
     })
-
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent()
 
@@ -139,6 +151,7 @@ render() {
         results: _.filter(this.state.siteData, isMatch)
       })
     }, 500)
+      document.getElementById("searchbar").focus();
   }
 
 
