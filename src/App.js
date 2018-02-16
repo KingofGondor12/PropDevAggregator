@@ -66,14 +66,14 @@ render() {
       <Container>
         { !loaded &&
             <Dimmer active inverted>
-              <Loader indeterminate size={'large'}>Arranging framework</Loader>
+              <Loader indeterminate size={'large'}>Formulating...</Loader>
             </Dimmer>
         }
         <ScrollableAnchor id={"search"}>
           <div></div>
         </ScrollableAnchor>
+        <br /><hr />
         <Image centered src={Q1ClearTitleColor} />
-
           <Search
             id={'searchbar'}
             input={{fluid: true}}
@@ -86,20 +86,21 @@ render() {
             value={value}
             placeholder='Search...'
             {...this.props}
-          />
-          <hr /><br />
+          /><br />
         <div className="buttonMenu">
           <Button href="#map" animated={'fade'}>
-            <Button.Content visible>Worldwide Search</Button.Content>
+            <Button.Content visible>Worldwide Developments</Button.Content>
             <Button.Content hidden>
               <Icon name='world' size='large' />
             </Button.Content>
           </Button>
         </div>
-          <hr /><br />
+          <br /><hr /><br />
       <CardGrid siteData={siteData} />
+      <br />
         { loaded &&
           <div>
+          <hr />
             <Image centered src={Q1WorldTitle} />
           <ScrollableAnchor id={"map"}>
             <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
