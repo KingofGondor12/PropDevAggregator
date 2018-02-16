@@ -10,6 +10,7 @@ class WorldMap extends Component {
 					"pathToImages": "http://www.amcharts.com/lib/3/images/",
           fontFamily: "Lobster",
 					"addClassNames": true,
+          "zoomOnDoubleClick": false,
           "defs": {
             "linearGradient": [
               {
@@ -62,7 +63,7 @@ class WorldMap extends Component {
 						"rollOverColor": "#1ccfab",
 						"selectedColor": "#1cc8cf",
 						"selectable": true,
-            "autoZoom": true,
+            "autoZoom": false,
 						"unlistedAreasAlpha": 0,
 						"unlistedAreasOutlineAlpha": 0
 					},
@@ -83,8 +84,8 @@ class WorldMap extends Component {
 						"selectedBrightness": 20
 					},
 					"zoomControl": {
-						"zoomControlEnabled": true,
-						"homeButtonEnabled": true,
+						"zoomControlEnabled": false,
+						"homeButtonEnabled": false,
 						"panControlEnabled": false,
 						"right": 38,
 						"bottom": 30,
@@ -96,7 +97,6 @@ class WorldMap extends Component {
 						"draggerAlpha": 1,
 						"buttonCornerRadius": 2
 					},
-          "smallMap": {},
           "listeners": [{
             "event": "clickMapObject",
             "method": this.props.handleMapObjectClick
