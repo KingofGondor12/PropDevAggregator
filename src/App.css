@@ -13,16 +13,6 @@ hr {
   margin: 0px auto 10px;
 }
 
-h2 {
-  font-family: 'Lobster', sans-serif;
-  font-weight: lighter;
-}
-
-h4 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: lighter;
-}
-
 .ui.animated.button .hidden.content {
   margin-top: -10px;
 }
@@ -86,6 +76,18 @@ div#__AmCharts_React_1__ {
   border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+div#__AmCharts_React_1__ h2 {
+  font-family: 'Lobster', sans-serif;
+  font-weight: lighter;
+  margin-bottom: -20px;
+}
+
+div#__AmCharts_React_1__ h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+  margin-bottom: 6px;
 }
 
 .ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {

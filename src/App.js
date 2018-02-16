@@ -11,7 +11,8 @@ import {
         Image,
         Loader,
         Button,
-        Icon
+        Icon,
+        Dimmer
        } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
@@ -63,10 +64,16 @@ render() {
 
   return (
       <Container>
+        { !loaded &&
+            <Dimmer active inverted>
+              <Loader indeterminate size={'large'}>Arranging framework</Loader>
+            </Dimmer>
+        }
         <ScrollableAnchor id={"search"}>
           <div></div>
         </ScrollableAnchor>
         <Image centered src={Q1ClearTitleColor} />
+
           <Search
             id={'searchbar'}
             input={{fluid: true}}
@@ -83,14 +90,13 @@ render() {
           <hr /><br />
         <div className="buttonMenu">
           <Button href="#map" animated={'fade'}>
-            <Button.Content visible>WorldMap</Button.Content>
+            <Button.Content visible>Worldwide Search</Button.Content>
             <Button.Content hidden>
               <Icon name='world' size='large' />
             </Button.Content>
           </Button>
         </div>
           <hr /><br />
-        { !loaded && <Loader active size={'large'}>Loading</Loader> }
       <CardGrid siteData={siteData} />
         { loaded &&
           <div>
