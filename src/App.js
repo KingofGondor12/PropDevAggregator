@@ -11,7 +11,8 @@ import {
         Image,
         Loader,
         Button,
-        Icon
+        Icon,
+        Dimmer
        } from 'semantic-ui-react';
 // Stylesheets
 import './App.css';
@@ -63,54 +64,56 @@ render() {
 
   return (
       <Container>
-        <ScrollableAnchor id={"search"}>
-          <div></div>
-        </ScrollableAnchor>
-        <Image centered src={Q1ClearTitleColor} />
-          <Search
-            id={'searchbar'}
-            input={{fluid: true}}
-            size={'large'}
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={this.handleSearchChange}
-            resultRenderer={resultRenderer}
-            results={results}
-            open={false}
-            value={value}
-            placeholder='Search...'
-            {...this.props}
-          />
-          { loaded &&
-            <div>
-              <hr />
-              <br />
-              <div className="buttonMenu">
-                <Button href="#map" animated={'fade'}>
-                  <Button.Content visible>
-                    World Map
-                  </Button.Content>
-                  <Button.Content hidden>
-                    <Icon name='world' size='large' />
-                  </Button.Content>
-                </Button>
-              </div>
-            { !isLoading && <hr /> }
-            <br />
-          </div>
+        { !loaded &&
+          <Dimmer active inverted>
+            <Loader indeterminate size={'large'}>Formulating...</Loader>
+          </Dimmer>
         }
-        { !loaded && <Loader active size={'large'}>Loading</Loader> }
+        <ScrollableAnchor id={"search"}>
+          <div>
+          </div>
+        </ScrollableAnchor>
+        <br />
+        <hr />
+        <Image centered src={Q1ClearTitleColor} />
+        <Search
+          id={'searchbar'}
+          input={{fluid: true}}
+          size={'large'}
+          loading={isLoading}
+          onResultSelect={this.handleResultSelect}
+          onSearchChange={this.handleSearchChange}
+          resultRenderer={resultRenderer}
+          results={results}
+          open={false}
+          value={value}
+          placeholder='Search...'
+          {...this.props}
+        />
+        <br />
+        <div className="buttonMenu">
+          <Button href="#map" animated={'fade'}>
+            <Button.Content visible>Worldwide Developments</Button.Content>
+            <Button.Content hidden>
+              <Icon name='world' size='large' />
+            </Button.Content>
+          </Button>
+        </div>
+        <br />
+        <hr />
+        <br />
         { !value ? <CardGrid siteData={siteData} /> : <CardGrid siteData={results} />}
+        <br />
         { loaded &&
           <div>
-            <hr />
+          <hr />
             <Image centered src={Q1WorldTitle} />
             <ScrollableAnchor id={"map"}>
               <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
             </ScrollableAnchor>
           </div>
         }
-        <br />
+      <br />
       </Container>
     )
   }

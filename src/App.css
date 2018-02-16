@@ -2,25 +2,14 @@
 
 hr {
   border: 0;
+  padding: 0;
+  margin: 0 auto;
   width: 90%;
   height: 1px;
-  left: 10px;
   position: relative;
-  opacity: 0.5;
+  opacity: 0.4;
   background-image: -webkit-linear-gradient(left, #f0f0f0, #0c0b0b, #f0f0f0);
   background-image: -moz-linear-gradient(left, #f0f0f0, #0c0b0b, #f0f0f0);
-  top: 12px;
-  margin: 0px auto 10px;
-}
-
-h2 {
-  font-family: 'Lobster', sans-serif;
-  font-weight: lighter;
-}
-
-h4 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: lighter;
 }
 
 .ui.animated.button .hidden.content {
@@ -28,7 +17,6 @@ h4 {
 }
 
 .buttonMenu {
-  margin-top: -4px;
   display: flex;
   justify-content: center;
 }
@@ -45,34 +33,7 @@ h4 {
   fill: url(#map_background);
 }
 
-.US_Map_Info {
-  text-align: center;
-  padding: 2.5%;
-  background: white;
-  background-size: cover;
-  color: #000;
-  border-radius: 10px;
-}
-
-.AE_Map_Info {
-  text-align: center;
-  padding: 2.5%;
-  background: white;
-  background-size: cover;
-  color: #000;
-  border-radius: 10px;
-}
-
-.AU_Map_Info {
-  text-align: center;
-  padding: 2.5%;
-  background: white;
-  background-size: cover;
-  color: #000;
-  border-radius: 10px;
-}
-
-.CN_Map_Info {
+.mapPoppup {
   text-align: center;
   padding: 2.5%;
   background: white;
@@ -85,7 +46,19 @@ div#__AmCharts_React_1__ {
   border-radius: 0;
   border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+div#__AmCharts_React_1__ h2 {
+  font-family: 'Lobster', sans-serif;
+  font-weight: lighter;
+  margin-bottom: -20px;
+}
+
+div#__AmCharts_React_1__ h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+  margin-bottom: 6px;
 }
 
 .ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
