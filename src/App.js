@@ -24,8 +24,8 @@ import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
 // Q1ClearTitle
-import Q1ClearTitleColor from './images/Q1ClearTitleColor.png';
-import Q1WorldTitle from './images/Q1WorldTitle.png';
+import Q1ClearTitleColor from './images/Q1TitleClearColor2.png';
+import Q1WorldTitle from './images/Q1WorldTitle2.png';
 
 // Custom renderer for Search Bar
 const resultRenderer = ({ name, image, url }) => {
@@ -65,28 +65,30 @@ render() {
   return (
       <Container>
         { !loaded &&
-            <Dimmer active inverted>
-              <Loader indeterminate size={'large'}>Formulating...</Loader>
-            </Dimmer>
+          <Dimmer active inverted>
+            <Loader indeterminate size={'large'}>Formulating...</Loader>
+          </Dimmer>
         }
         <ScrollableAnchor id={"search"}>
           <div></div>
         </ScrollableAnchor>
-        <br /><hr />
+        <br />
+        <hr />
         <Image centered src={Q1ClearTitleColor} />
-          <Search
-            id={'searchbar'}
-            input={{fluid: true}}
-            size={'large'}
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={this.handleSearchChange}
-            resultRenderer={resultRenderer}
-            results={results}
-            value={value}
-            placeholder='Search...'
-            {...this.props}
-          /><br />
+        <Search
+          id={'searchbar'}
+          input={{fluid: true}}
+          size={'large'}
+          loading={isLoading}
+          onResultSelect={this.handleResultSelect}
+          onSearchChange={this.handleSearchChange}
+          resultRenderer={resultRenderer}
+          results={results}
+          value={value}
+          open={false}
+          placeholder='Search...'
+          {...this.props}
+        /><br />
         <div className="buttonMenu">
           <Button href="#map" animated={'fade'}>
             <Button.Content visible>Worldwide Developments</Button.Content>
@@ -95,16 +97,18 @@ render() {
             </Button.Content>
           </Button>
         </div>
-          <br /><hr /><br />
-      <CardGrid siteData={siteData} />
-      <br />
-        { loaded &&
+        <br />
+        <hr />
+        <br />
+         { !value ? <CardGrid siteData={siteData} /> : <CardGrid siteData={results} />}
+        <br />
+         { loaded &&
           <div>
-          <hr />
+            <hr />
             <Image centered src={Q1WorldTitle} />
-          <ScrollableAnchor id={"map"}>
-            <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
-          </ScrollableAnchor>
+            <ScrollableAnchor id={"map"}>
+              <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
+            </ScrollableAnchor>
           </div> }
         <br />
       </Container>
@@ -129,7 +133,7 @@ render() {
   resetComponent = () => {
     this.setState({
       isLoading: false,
-      results: [],
+      results: this.state.siteData,
       value: ''
     })
   }
