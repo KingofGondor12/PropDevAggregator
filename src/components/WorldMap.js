@@ -17,7 +17,9 @@ class WorldMap extends Component {
               "id": "map_background",
                 "stop": [{
                   "offset": "0%",
-                  "stop-color": "#3d599d"
+                  "stop-color": "#526ba8"
+                  // "stop-color": "#64727d"
+
                 },{
                   "offset": "100%",
                   "stop-color": "#e9ebf2"

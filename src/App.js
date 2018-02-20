@@ -28,7 +28,7 @@ import Q1ClearTitleColor from './images/Q1ClearTitleColor.png';
 import Q1WorldTitle from './images/Q1WorldTitle.png';
 
 // Custom renderer for Search Bar
-const resultRenderer = ({ name, image, url }) => {
+const resultRenderer = ({ name, image, url, description }) => {
   return (
     <div class="ui link items">
       <a class="item" href={url} target="_blank">
@@ -44,6 +44,7 @@ const resultRenderer = ({ name, image, url }) => {
   resultRenderer.propTypes = {
     name: PropTypes.string,
     image: PropTypes.string,
+    description: PropTypes.string,
     url: PropTypes.string
   }
 
@@ -106,7 +107,7 @@ render() {
         <br />
         { loaded &&
           <div>
-          <hr />
+            <hr />
             <Image centered src={Q1WorldTitle} />
             <ScrollableAnchor id={"map"}>
               <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
@@ -138,7 +139,7 @@ render() {
   resetComponent = () => {
     this.setState({
       isLoading: false,
-      results: [],
+      results: this.state.siteData,
       value: ''
     })
   }
