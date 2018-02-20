@@ -12,6 +12,22 @@ hr {
   background-image: -moz-linear-gradient(left, #f0f0f0, #0c0b0b, #f0f0f0);
 }
 
+.ui.header {
+  margin: 0.25em 0;
+}
+
+.ui.header i {
+  width: 2
+}
+
+.dotDesc {
+  font-size: 1em;
+  margin-top: 0.3em;
+  color: rgba(0,0,0,.68);
+  text-align: center;
+  line-height: 1.6em;
+}
+
 .ui.animated.button .hidden.content {
   margin-top: -10px;
 }
@@ -19,10 +35,6 @@ hr {
 .buttonMenu {
   display: flex;
   justify-content: center;
-}
-
-.ui.borderless.menu {
-  margin: 0 !important;
 }
 
 .centered {

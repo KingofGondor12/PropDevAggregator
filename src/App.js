@@ -24,11 +24,11 @@ import {api} from './api/init';
 // Lodash
 import _ from 'lodash';
 // Q1ClearTitle
-import Q1ClearTitleColor from './images/Q1TitleClearColor2.png';
-import Q1WorldTitle from './images/Q1WorldTitle2.png';
+import Q1ClearTitleColor from './images/Q1ClearTitleColor.png';
+import Q1WorldTitle from './images/Q1WorldTitle.png';
 
 // Custom renderer for Search Bar
-const resultRenderer = ({ name, image, url }) => {
+const resultRenderer = ({ name, image, url, description }) => {
   return (
     <div class="ui link items">
       <a class="item" href={url} target="_blank">
@@ -44,6 +44,7 @@ const resultRenderer = ({ name, image, url }) => {
   resultRenderer.propTypes = {
     name: PropTypes.string,
     image: PropTypes.string,
+    description: PropTypes.string,
     url: PropTypes.string
   }
 
@@ -66,7 +67,7 @@ render() {
       <Container>
         { !loaded &&
           <Dimmer active inverted>
-            <Loader indeterminate size={'large'}>Formulating...</Loader>
+            <Loader indeterminate size={'large'}>Just a few seconds...</Loader>
           </Dimmer>
         }
         <ScrollableAnchor id={"search"}>

@@ -10,6 +10,7 @@
     "react": "^16.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.5",
     "react-dom": "^16.2.0",
+    "react-dotdotdot": "^1.2.2",
     "react-scripts": "1.1.0",
     "react-scroll-to-component": "^1.0.2",
     "react-scrollable-anchor": "^0.6.1",
