@@ -9,6 +9,7 @@ import {
        Header,
        Label
        } from 'semantic-ui-react';
+
 // Sharing Components
 import {
        FacebookShareButton,
@@ -16,6 +17,7 @@ import {
        TwitterShareButton,
        EmailShareButton,
        } from 'react-share';
+       
 // Truncate Text package
 import Dotdotdot from 'react-dotdotdot';
 
