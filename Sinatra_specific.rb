@@ -110,56 +110,56 @@ get '/' do
     off_plan_count_szr = off_plan_count_szr + 1
   end
 
-  # # Off Plan Properties - Marina Function
-  #
-  # @off_plan_marina = Nokogiri::HTML(open("https://offplan-properties.ae/buy-new-projects-dubai/dubai-marina/"))
-  #
-  # @off_plan_image_search_marina = @off_plan_marina.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]/div/div[@class="col-md-12 col-sm-12 col-xs-12"]/a/img/@src')
-  # @off_plan_title_search_marina = @off_plan_marina.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]//h4/a')
-  # @off_plan_link_search_marina = @off_plan_marina.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]//h4/a/@href')
-  #
-  # @off_plan_titles_marina = []
-  #
-  # @off_plan_title_search_marina.each do |a|
-  #   @off_plan_titles_marina << a.inner_text
-  # end
-  #
-  # @off_plan_images_marina = []
-  #
-  # @off_plan_image_search_marina.each do |img|
-  #   @off_plan_images_marina << img
-  # end
-  #
-  # @off_plan_links_marina = []
-  #
-  # @off_plan_link_search_marina.each do |link|
-  #   @off_plan_links_marina << link.to_s.strip
-  # end
-  # #
-  # # @off_plan_description_marina = []
-  # #
-  # # @off_plan_links_marina.each do |p|
-  # #   @crawl_marina = Nokogiri::HTML(open(p))
-  # #   @one_marina = @crawl_marina.xpath('//div[contains(@class,"description")]//p').first
-  # #     if @one_marina == nil
-  # #       @off_plan_description_marina << ""
-  # #     else
-  # #       @off_plan_description_marina << @one_marina.text
-  # #     end
-  # # end
-  #
-  # off_plan_count_marina = 0
-  # @off_plan_titles_marina.each do |title|
-  #   results << {
-  #     name: title,
-  #     image: @off_plan_images_marina[off_plan_count_marina].value,
-  #     url: @off_plan_links_marina[off_plan_count_marina],
-  #     # description: @off_plan_description_marina[off_plan_count_marina],
-  #     tag: ["Dubai", "United Arab Emirates", "Middle-East"],
-  #     code: "ae"
-  #   }
-  #   off_plan_count_marina = off_plan_count_marina + 1
-  # end
+  # Off Plan Properties - Marina Function
+
+  @off_plan_marina = Nokogiri::HTML(open("https://offplan-properties.ae/buy-new-projects-dubai/dubai-marina/"))
+
+  @off_plan_image_search_marina = @off_plan_marina.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]/div/div[@class="col-md-12 col-sm-12 col-xs-12"]/a/img/@src')
+  @off_plan_title_search_marina = @off_plan_marina.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]//h4/a')
+  @off_plan_link_search_marina = @off_plan_marina.xpath('//div[@id="Projects"]/div/div/div[@class="col-md-4 col-sm-6 col-xs-12 text-center"]//h4/a/@href')
+
+  @off_plan_titles_marina = []
+
+  @off_plan_title_search_marina.each do |a|
+    @off_plan_titles_marina << a.inner_text
+  end
+
+  @off_plan_images_marina = []
+
+  @off_plan_image_search_marina.each do |img|
+    @off_plan_images_marina << img
+  end
+
+  @off_plan_links_marina = []
+
+  @off_plan_link_search_marina.each do |link|
+    @off_plan_links_marina << link.to_s.strip
+  end
+
+  @off_plan_description_marina = []
+
+  @off_plan_links_marina.each do |p|
+    @crawl_marina = Nokogiri::HTML(open(p))
+    @one_marina = @crawl_marina.xpath('//div[contains(@class,"description")]//p').first
+      if @one_marina == nil
+        @off_plan_description_marina << ""
+      else
+        @off_plan_description_marina << @one_marina.text
+      end
+  end
+
+  off_plan_count_marina = 0
+  @off_plan_titles_marina.each do |title|
+    results << {
+      name: title,
+      image: @off_plan_images_marina[off_plan_count_marina].value,
+      url: @off_plan_links_marina[off_plan_count_marina],
+      description: @off_plan_description_marina[off_plan_count_marina],
+      tag: ["Dubai", "United Arab Emirates", "Middle-East"],
+      code: "ae"
+    }
+    off_plan_count_marina = off_plan_count_marina + 1
+  end
 
   # Off Plan Properties - Downtown Function
   #
