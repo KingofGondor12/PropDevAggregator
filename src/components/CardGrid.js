@@ -6,7 +6,8 @@ import {
        Icon,
        Card,
        Flag,
-       Header
+       Header,
+       Label
        } from 'semantic-ui-react';
 // Sharing Components
 import {
@@ -26,7 +27,7 @@ class CardGrid extends Component {
 
     return (
 
-      <Card.Group doubling stackable centered itemsPerRow={4}>
+      <Card.Group doubling centered itemsPerRow={4}>
       {
         siteData.map((hash) => (
         <Card
@@ -35,17 +36,26 @@ class CardGrid extends Component {
           href={hash.url}
           image={hash.image}
           header={
-                  <div>
-                    <Header>
-                      {hash.name}
-                    </Header>
-                    <Flag name={hash.code} />
+                  <div className='cardHeader'>
+                    <Dotdotdot clamp={2}>
+                      <Header>
+                        {hash.name}
+                      </Header>
+                    </Dotdotdot>
                   </div>
                   }
           description={
-                        <Dotdotdot className='dotDesc' clamp={5}>
+                      <div>
+                        <Dotdotdot className='cardDescription' clamp={5}>
                           {!hash.description ? 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quia vero necessitatibus quas, quibusdam dignissimos magnam, eligendi, alias tempore maiores incidunt tenetur eum numquam neque animi! Consequatur laborum quae temporibus.' : hash.description}
                         </Dotdotdot>
+                        <Label size='small'>
+                          {hash.type}
+                        </Label>
+                        <Label size='tiny'>
+                          <Flag name={hash.code} />
+                        </Label>
+                      </div>
                       }
           extra={
           <div className='cardSocialIcons'>
@@ -83,5 +93,3 @@ class CardGrid extends Component {
 }
 
 export default CardGrid;
-
-// !hash.description.length ? `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quia vero necessitatibus quas, quibusdam dignissimos magnam, eligendi, alias tempore maiores incidunt tenetur eum numquam neque animi! Consequatur laborum quae temporibus.` :
