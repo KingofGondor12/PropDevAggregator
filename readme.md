@@ -31,10 +31,12 @@ It also requires the following Packages, installed via the `npm install` command
 Once the required Gems and Packages have been installed, follow these steps:
 
 1. Open two instances of your command line into the PropDev directory
-2. Run `ruby Sinatra-specific.rb` on one of them
+2. Run `ruby Sinatra_specific.rb` on one of them
 3. Navigate to the second instance
 4. Run `npm start`
 5. Watch it load in your browser
+
+Note: If being put into production, ensure that the URL in src/api/init.js is correct, as it defaults to localhost as defined by Sinatra.
 ---
 
 ## Known Bugs:
