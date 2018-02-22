@@ -34,7 +34,7 @@ end
 
 off_plan_count_twi = 0
 @off_plan_titles_twi.each do |title|
-  results << {name: title, image: @off_plan_images_twi[off_plan_count_twi].value, url: @off_plan_links_twi[off_plan_count_twi].value}
+  results << {name: title, image: @off_plan_images_twi[off_plan_count_twi].value, url: @off_plan_links_twi[off_plan_count_twi].value, tag: ["dubai", "United Arab Emirates", "Middle-East"]}
   off_plan_count_twi = off_plan_count_twi + 1
 end
 
@@ -66,7 +66,7 @@ end
 
 off_plan_count_szr = 0
 @off_plan_titles_szr.each do |title|
-  results << {name: title, image: @off_plan_images_szr[off_plan_count_szr].value, url: @off_plan_links_szr[off_plan_count_szr].value}
+  results << {name: title, image: @off_plan_images_szr[off_plan_count_szr].value, url: @off_plan_links_szr[off_plan_count_szr].value, tag: ["dubai", "United Arab Emirates", "Middle-East"]}
   off_plan_count_szr = off_plan_count_szr + 1
 end
 
@@ -98,7 +98,7 @@ end
 
 off_plan_count_marina = 0
 @off_plan_titles_marina.each do |title|
-  results << {name: title, image: @off_plan_images_marina[off_plan_count_marina].value, url: @off_plan_links_marina[off_plan_count_marina].value}
+  results << {name: title, image: @off_plan_images_marina[off_plan_count_marina].value, url: @off_plan_links_marina[off_plan_count_marina].value, tag: ["Dubai", "United Arab Emirates", "Middle-East"]}
   off_plan_count_marina = off_plan_count_marina + 1
 end
 
@@ -130,7 +130,7 @@ end
 
 off_plan_count_downtown = 0
 @off_plan_titles_downtown.each do |title|
-  results << {name: title, image: @off_plan_images_downtown[off_plan_count_downtown].value, url: @off_plan_links_downtown[off_plan_count_downtown].value}
+  results << {name: title, image: @off_plan_images_downtown[off_plan_count_downtown].value, url: @off_plan_links_downtown[off_plan_count_downtown].value, tag: ["Dubai", "United Arab Emirates", "Middle-East"]}
   off_plan_count_downtown = off_plan_count_downtown + 1
 end
 
@@ -162,7 +162,7 @@ end
 
 off_plan_count_dubailand = 0
 @off_plan_titles_dubailand.each do |title|
-  results << {name: title, image: @off_plan_images_dubailand[off_plan_count_dubailand].value, url: @off_plan_links_dubailand[off_plan_count_dubailand].value}
+  results << {name: title, image: @off_plan_images_dubailand[off_plan_count_dubailand].value, url: @off_plan_links_dubailand[off_plan_count_dubailand].value, tag: ["Dubai", "United Arab Emirates", "Middle-East"]}
   off_plan_count_dubailand = off_plan_count_dubailand + 1
 end
 
@@ -199,80 +199,46 @@ end
 
 urban_count = 0
 @urban_titles.each do |title|
-  results << {name: title, image: @urban_images[urban_count].value, url: @urban_links[urban_count]}
+  results << {name: title, image: @urban_images[urban_count].value, url: @urban_links[urban_count], tag: ["Australia", "Oceania"]}
   urban_count = urban_count + 1
 end
 
-# @europrop = Nokogiri::HTML(open("https://europroperty.com/news/category/Analysis/141"))
-#
-# @europrop_title_search = @europrop.xpath('//div[@class="container"]/div[@class="row"]/div[@class="col-sm-8"]/div[@class="row"]/div/a/div/h3')
-# @europrop_image_search = @europrop.xpath('//div[@class="container"]/div[@class="row"]/div[@class="col-sm-8"]/div[@class="row"]/div/a//img/@src')
-#
-# @europrop_titles = []
-#
-# @europrop_title_search.each do |h3|
-#   @europrop_titles << h3.inner_text
-# end
-#
-# @europrop_images = []
-#
-# @europrop_image_search.each do |img|
-#   @europrop_images << "https://europroperty.com#{img}"
-# end
-#
-# europrop_count = 0
-# @europrop_titles.each do |title|
-#   results << {name: title, image: @europrop_images[europrop_count]}
-#   europrop_count = europrop_count + 1
-# end
-#
-# @ee24 = Nokogiri::HTML(open("http://ee24.com/daily/"))
-#
-# @ee24_title_search = @ee24.xpath('//div/div/div[@class="container"]//div[@class="grid js-masonry"]/article//h3/a')
-# @ee24_image_search = @ee24.xpath('//div/div/div[@class="container"]//div[@class="grid js-masonry"]/article//figure/a/img/@src')
-#
-# @ee24_titles = []
-#
-# @ee24_title_search.each do |a|
-#   @ee24_titles << a.inner_text
-# end
-#
-# @ee24_images = []
-#
-# @ee24_image_search.each do |img|
-#   @ee24_images << "http://ee24.com#{img}"
-# end
-#
-# ee24_count = 0
-# @ee24_titles.each do |title|
-#   results << {name: title, image: @ee24_images[ee24_count]}
-#   ee24_count = ee24_count + 1
-# end
-#
-# @core = Nokogiri::HTML(open("http://www.core-me.com/latest-core-news.html"))
-#
-# @core_title_search = @core.xpath('//div[@id="content_area"]/ul/li/div[@class="core_news_details"]//h2')
-# @core_image_search = @core.xpath('//div[@id="content_area"]/ul/li/div[@class="core_news_picture"]/a/img/@src')
-#
-# @core_titles = []
-#
-# @core_title_search.each do |a|
-#   @core_titles << a.inner_text
-# end
-#
-# @core_images = []
-#
-# @core_image_search.each do |img|
-#   @core_images << img
-# end
-#
-# core_count = 0
-# @core_titles.each do |title|
-#   if core_count < 11
-#     results << {name: title, image: @core_images[core_count].value}
-#     core_count = core_count + 1
-#   end
-# end
+# RIS Media
+
+@ris = Nokogiri::HTML(open("http://rismedia.com/category/news/"))
+
+@ris_title_search = @ris.xpath('//div[@id="left-area"]/article/h2[@class="entry-title"]/a')
+@ris_image_search = @ris.xpath('//div[@id="left-area"]/article//img/@src')
+@ris_link_search = @ris.xpath('//div[@id="left-area"]/article/a/@href')
+
+@ris_titles = []
+
+@ris_title_search.each do |div|
+  @ris_titles << div.inner_text.gsub(/[^a-zA-Z0-9. ]/, '').squeeze(" ").strip
+end
+
+@ris_images = []
+
+@ris_image_search.each do |img|
+  if img.content.slice(0, 4) == "http"
+    @ris_images << img
+  end
+end
+
+@ris_links = []
+
+@ris_link_search.each do |link|
+  if link.value.slice(0, 4) != "http"
+    link = link.value.insert(0, "https://rismedia.com")
+  end
+  @ris_links << link
+end
+
+ris_count = 0
+@ris_titles.each do |title|
+  results << {name: title, image: @ris_images[ris_count].value, url: @ris_links[ris_count], tag: ["America", "United States", "United States of America", "North America"]}
+  ris_count = ris_count + 1
+end
 
 # Writing to outside file
 
