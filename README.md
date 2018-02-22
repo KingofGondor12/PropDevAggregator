@@ -1,5 +1,5 @@
 PropDev Aggregator
-====================
+
 
 This site was developed by Chris Hayward and Christopher Maier, combining Sinatra/Ruby with ReactJS, in collaboration with Q1 Design.
 
