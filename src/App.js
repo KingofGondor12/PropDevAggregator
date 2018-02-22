@@ -29,8 +29,8 @@ import {api} from './api/init';
 import _ from 'lodash';
 
 // Q1ClearTitle
-import Q1ClearTitleColor from './images/PropDevLogo.png';
-import Q1WorldTitle from './images/PropDevWorldwide.png';
+import Q1ClearTitleColor from './images/PropDevTitle05.png';
+import Q1WorldTitle from './images/PropDevWorldwide05.png';
 
 class App extends Component {
 
@@ -83,7 +83,7 @@ render() {
               <Icon name='world' size='large' />
             </Button.Content>
           </Button>
-            {/* Test button for visibility toggle */}
+  {/* Test button for visibility toggle */}
           {/* <Button content={visible ? 'Hide' : 'Show'} onClick={this.toggleVisibility} /> */}
         </div>
         <br />

@@ -10,6 +10,9 @@ import {
        Label
        } from 'semantic-ui-react';
 
+// Lodash
+import _ from 'lodash';
+
 // Sharing Components
 import {
        FacebookShareButton,
@@ -25,13 +28,15 @@ class CardGrid extends Component {
 
   render() {
 
-    const { siteData } = this.props
+    // const { siteData } = this.props
+
+    var mixedData = _.shuffle(this.props.siteData)
 
     return (
 
       <Card.Group doubling centered itemsPerRow={4}>
       {
-        siteData.map((hash) => (
+        mixedData.map((hash) => (
         <Card
           className='cards'
           target='_blank'

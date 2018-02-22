@@ -343,46 +343,46 @@ get '/' do
     key = key + 1
   end
 
-  # Off Plan Properties - Jumeirah Golf
-
-  @off_plan_jumeirah_golf = Nokogiri::HTML(open("https://offplan-properties.ae/buy-new-projects-dubai/jumeirah-golf-estates/"))
-
-  @off_plan_image_search_jumeirah_golf = @off_plan_jumeirah_golf.xpath('//div[contains(@class,"project-grid")]//a/img/@src')
-  @off_plan_title_search_jumeirah_golf = @off_plan_jumeirah_golf.xpath('//div[contains(@class,"project-grid")]//h4/a')
-  @off_plan_link_search_jumeirah_golf = @off_plan_jumeirah_golf.xpath('//div[contains(@class,"project-grid")]//h4/a/@href')
-
-  @off_plan_titles_jumeirah_golf = []
-
-  @off_plan_title_search_jumeirah_golf.each do |a|
-    @off_plan_titles_jumeirah_golf << a.inner_text
-  end
-
-  @off_plan_images_jumeirah_golf = []
-
-  @off_plan_image_search_jumeirah_golf.each do |img|
-    @off_plan_images_jumeirah_golf << img
-  end
-
-  @off_plan_links_jumeirah_golf = []
-
-  @off_plan_link_search_jumeirah_golf.each do |link|
-    @off_plan_links_jumeirah_golf << link
-  end
-
-  off_plan_count_jumeirah_golf = 0
-  @off_plan_titles_jumeirah_golf.each do |title|
-    results << {
-      key: key,
-      name: title,
-      image: @off_plan_images_jumeirah_golf[off_plan_count_jumeirah_golf].value,
-      url: @off_plan_links_jumeirah_golf[off_plan_count_jumeirah_golf].value,
-      tag: ["Dubai", "United Arab Emirates", "Middle-East", "Jumeirah Golf"],
-      type: "Development",
-      code: "ae"
-    }
-    off_plan_count_jumeirah_golf = off_plan_count_jumeirah_golf + 1
-    key = key + 1
-  end
+  # # Off Plan Properties - Jumeirah Golf
+  #
+  # @off_plan_jumeirah_golf = Nokogiri::HTML(open("https://offplan-properties.ae/buy-new-projects-dubai/jumeirah-golf-estates/"))
+  #
+  # @off_plan_image_search_jumeirah_golf = @off_plan_jumeirah_golf.xpath('//div[contains(@class,"project-grid")]//a/img/@src')
+  # @off_plan_title_search_jumeirah_golf = @off_plan_jumeirah_golf.xpath('//div[contains(@class,"project-grid")]//h4/a')
+  # @off_plan_link_search_jumeirah_golf = @off_plan_jumeirah_golf.xpath('//div[contains(@class,"project-grid")]//h4/a/@href')
+  #
+  # @off_plan_titles_jumeirah_golf = []
+  #
+  # @off_plan_title_search_jumeirah_golf.each do |a|
+  #   @off_plan_titles_jumeirah_golf << a.inner_text
+  # end
+  #
+  # @off_plan_images_jumeirah_golf = []
+  #
+  # @off_plan_image_search_jumeirah_golf.each do |img|
+  #   @off_plan_images_jumeirah_golf << img
+  # end
+  #
+  # @off_plan_links_jumeirah_golf = []
+  #
+  # @off_plan_link_search_jumeirah_golf.each do |link|
+  #   @off_plan_links_jumeirah_golf << link
+  # end
+  #
+  # off_plan_count_jumeirah_golf = 0
+  # @off_plan_titles_jumeirah_golf.each do |title|
+  #   results << {
+  #     key: key,
+  #     name: title,
+  #     image: @off_plan_images_jumeirah_golf[off_plan_count_jumeirah_golf].value,
+  #     url: @off_plan_links_jumeirah_golf[off_plan_count_jumeirah_golf].value,
+  #     tag: ["Dubai", "United Arab Emirates", "Middle-East", "Jumeirah Golf"],
+  #     type: "Development",
+  #     code: "ae"
+  #   }
+  #   off_plan_count_jumeirah_golf = off_plan_count_jumeirah_golf + 1
+  #   key = key + 1
+  # end
 
 # *** WORKS TO HERE! *** #
 
@@ -629,7 +629,7 @@ get '/' do
   #   }
   #   off_plan_count_south = off_plan_count_south + 1
   # end
-
+  #
   # # Off Plan Properties - Al Furjan
   #
   # @off_plan_al_furjan = Nokogiri::HTML(open("https://offplan-properties.ae/buy-new-projects-dubai/al-furjan/"))
@@ -856,6 +856,56 @@ get '/' do
   #     code: "us"
   #   }
   #   curbed_count = curbed_count + 1
+  #   key = key + 1
+  # end
+
+
+  # # Colliers
+  #
+  # @colliers = Nokogiri::HTML(open("http://www.colliers.com/en-gb/china/"))
+  #
+  # @colliers_image_search = @colliers.xpath('//div[contains(@class,"slick-track")]//img/@src')
+  # @colliers_title_search = @colliers.xpath('//article//h5')
+  # @colliers_link_search = @colliers.xpath('//div[contains(@class,"blockLink")]//@href')
+  # @colliers_description_search = @colliers.xpath('//article[contains(@class,"carouselArticle")]//@p[2]')
+  #
+  # @colliers_titles = []
+  #
+  # @colliers_title_search.each do |a|
+  #   @colliers_titles << a.inner_text
+  # end
+  #
+  # @colliers_images = []
+  #
+  # @colliers_image_search.each do |img|
+  #   @colliers_images << "https://colliers.com + #{img}"
+  # end
+  #
+  # @colliers_links = []
+  #
+  # @colliers_link_search.each do |link|
+  #   @colliers_links << link
+  # end
+  #
+  # @colliers_description = []
+  #
+  # @colliers_description_search.each do |p|
+  #   @colliers_description << p
+  # end
+  #
+  # colliers_count = 0
+  # @colliers_titles.each do |title|
+  #   results << {
+  #     key: key,
+  #     name: title,
+  #     image: @colliers_images[colliers_count].value,
+  #     url: @colliers_links[colliers_count].value,
+  #     description: @colliers_description,
+  #     tag: ["China", "Beijing"],
+  #     type: "Development",
+  #     code: "cn"
+  #   }
+  #   colliers_count = colliers_count + 1
   #   key = key + 1
   # end
 
