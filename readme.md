@@ -36,7 +36,7 @@ Once the required Gems and Packages have been installed, follow these steps:
 4. Run `npm start`
 5. Watch it load in your browser
 
-Note: If being put into production, ensure that the URL in src/api/init.js is correct, as it defaults to localhost as defined by Sinatra.
+Note: If being put into production, ensure that the URL in `src/api/init.js` is correct, as it defaults to localhost as defined by Sinatra.
 ---
 
 ## Known Bugs:
