@@ -2,7 +2,7 @@
 # --------------------------------------------
 
 # Gems required
-require 'Nokogiri'
+require 'nokogiri'
 require 'open-uri'
 require 'net_http_ssl_fix'
 require 'image_size'
@@ -32,11 +32,68 @@ links.each do |url|
   @imagesArray = []
   @doc = Nokogiri::HTML(open(url))
   @title = @doc.xpath('//head//title').first.content
-  @title = @title.squeeze(" ").gsub(/[^a-zA-Z0-9. ]/, '')
+  @title = @title.gsub(/[^a-zA-Z0-9. ]/, '').squeeze(" ")
+
   if @title[0] == " "
     @title = @title.strip
   end
+
   @images = @doc.xpath('//img//@src')
+  @divImages = @doc.xpath('//div//@style')
+
+  @divImages.each do |div|
+    div = div.to_s
+    array = []
+    if div.include?('background')
+      temp = div.index("url(").to_i
+      temp2 = "url(".size.to_i
+      temp3 = (temp + temp2)
+
+      if div[temp3] == "'"
+        for i in (temp3 + 1)..div.length-1
+          if div[i] == "'"
+            break
+          end
+          array << div[i]
+        end
+        array = array.join('').to_s
+        if !array.start_with?("http")
+          image = array.insert(0, url)
+        end
+        image = array
+      elsif div[temp3] == '"'
+        for i in (temp3 + 1)..div.length-1
+          if div[i] == '"'
+            break
+          end
+          array << div[i]
+        end
+        array = array.join('').to_s
+        if !array.start_with?("http")
+          image = array.insert(0, url)
+        end
+        image = array
+      else
+        for i in temp3..div.length-1
+          if div[i] == ")"
+            break
+          end
+          array << div[i]
+        end
+        array = array.join('').to_s
+        if !array.start_with?("http")
+          image = array.insert(0, url)
+        end
+        image = array
+      end
+      if image.slice(-3, 3) == "jpg"
+        @imagesArray << image
+      elsif image.slice(-4, 4) == "jpeg"
+        @imagesArray << image
+      end
+    end
+  end
+
   @images.each do |image|
     if image.content.slice(0, 4) != "http"
       image = "#{url}#{image.content}"
@@ -56,3 +113,5 @@ output.write(results)
 
 # Prints contents of titles and images arrays to the screen
 puts results
+
+# +10 Bonus Points for code not being a brothel
