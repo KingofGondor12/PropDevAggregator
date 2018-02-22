@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway:100,200,300,400');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway:200,300');
 
+/* Horizontal Rule */
 hr {
   border: 0;
   padding: 0;
@@ -12,6 +13,14 @@ hr {
   background-image: -moz-linear-gradient(left, #f0f0f0, #0c0b0b, #f0f0f0);
 }
 
+/* Generic text-align centered */
+.centered {
+  text-align: center;
+}
+
+/*************** LoadingScreen STYLES ***************/
+
+/* LoadingScreen spinner Title */
 .ml1 {
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
@@ -19,157 +28,7 @@ hr {
   color: #FFF;
 }
 
-.ui.card img {
-  height: 220px;
-  object-fit: cover;
-}
-
-i.flag {
-  margin: 0;
-}
-
-.cardHeader {
-  margin: 0.3em 0;
-}
-
-.Stats {
-  margin: 0 !important;
-  border: 0 !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-}
-
-.Stat {
-  margin: 0 !important;
-  padding: 0.3em 5vw !important;
-  border: 0 !important;
-  font-weight: bold !important;
-}
-
-.cardDescription {
-  font-size: 1em;
-  margin-top: 0.3em;
-  margin-bottom: 1em;
-  color: rgba(0,0,0,.68);
-  text-align: center;
-  line-height: 1.6em;
-}
-
-.ui.animated.button .hidden.content {
-  margin-top: -10px;
-}
-
-.buttonMenu {
-  display: flex;
-  justify-content: center;
-}
-
-.centered {
-  text-align: center;
-}
-
-.amcharts-bg {
-  fill: url(#map_background);
-}
-
-.mapPoppup {
-  text-align: center;
-  padding: 2.5%;
-  background: white;
-  background-size: cover;
-  color: #000;
-  border-radius: 10px;
-}
-
-div#__AmCharts_React_1__ {
-  border-radius: 0;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-div#__AmCharts_React_1__ h2 {
-  font-family: 'Lobster', sans-serif;
-  font-weight: lighter;
-  margin-bottom: -20px;
-}
-
-div#__AmCharts_React_1__ h4 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  margin-bottom: 6px;
-}
-
-.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
-  transform: none;
-}
-
-.ui.category.search>.results .category .result:hover, .ui.search>.results .result:hover {
-  background: hsla(0, 0%, 0%, 0.1);
-}
-
-.ui.four.cards>.card {
-  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.ui.four.cards>.card.label {
-  margin: 45px;
-}
-
-.ui.four.cards>.card:hover {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24), 0 15px 50px 0 rgba(0, 0, 0, 0.19);
-}
-
-.ui.search>.results .result {
-  padding: 0.5em 0.5em;
-}
-
-.ui.search>.results .result .image {
-  border-radius: 0;
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.ui.search>.results .result .image img {
-  height: auto;
-}
-
-.ui.search>.results {
-  width: 25em;
-}
-
-.ui.card.cards {
-  border-radius: 0;
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.ui.card>:first-child, .ui.cards>.card>:first-child {
-  border-radius: 0 !important;
-  border-top-right-radius: 12px !important;
-  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cardSocialIcons {
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cardSocialIcons i:hover {
-  color: #1cc8cf;
-}
-
-.ui.label {
-  border-bottom-left-radius: 5px !important;
-  border-top-right-radius: 5px !important;
-}
-
+/* LoadingScreen spinner */
 .sk-folding-cube {
   margin: 20px auto;
   width: 40px;
@@ -188,8 +47,9 @@ div#__AmCharts_React_1__ h4 {
       -ms-transform: scale(1.1);
           transform: scale(1.1);
 }
+
 .sk-folding-cube .sk-cube:before {
-  border: 1px solid #000;
+  border: 1px solid #262626;
   border-bottom-left-radius: 4px;
   border-top-right-radius: 4px;
   content: '';
@@ -205,30 +65,37 @@ div#__AmCharts_React_1__ h4 {
       -ms-transform-origin: 100% 100%;
           transform-origin: 100% 100%;
 }
+
 .sk-folding-cube .sk-cube2 {
   -webkit-transform: scale(1.1) rotateZ(90deg);
           transform: scale(1.1) rotateZ(90deg);
 }
+
 .sk-folding-cube .sk-cube3 {
   -webkit-transform: scale(1.1) rotateZ(180deg);
           transform: scale(1.1) rotateZ(180deg);
 }
+
 .sk-folding-cube .sk-cube4 {
   -webkit-transform: scale(1.1) rotateZ(270deg);
           transform: scale(1.1) rotateZ(270deg);
 }
+
 .sk-folding-cube .sk-cube2:before {
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
+
 .sk-folding-cube .sk-cube3:before {
   -webkit-animation-delay: 0.6s;
           animation-delay: 0.6s;
 }
+
 .sk-folding-cube .sk-cube4:before {
   -webkit-animation-delay: 0.9s;
           animation-delay: 0.9s;
 }
+
 @-webkit-keyframes sk-foldCubeAngle {
   0%, 10% {
     -webkit-transform: perspective(140px) rotateX(-180deg);
@@ -259,4 +126,166 @@ div#__AmCharts_React_1__ h4 {
             transform: perspective(140px) rotateY(180deg);
     opacity: 0;
   }
+}
+
+/*************** CardGrid STYLES ***************/
+
+/* CardGrid social media sharing icons */
+.cardSocialIcons {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CardGrid social media sharing icons */
+.cardSocialIcons i:hover {
+  color: #1cc8cf;
+}
+
+/* CardGrid images - set to scale to fill up avaliable space evenly so all images end up the same size and aspect ratio */
+.ui.card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Country flag */
+i.flag {
+  margin: 0;
+}
+
+/* CardGrid Header */
+.cardHeader {
+  margin: 0.3em 0;
+}
+
+/* CardGrid description */
+.cardDescription {
+  font-size: 1em;
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+  color: rgba(0,0,0,.68);
+  text-align: center;
+  line-height: 1.6em;
+}
+
+.ui.card.cards {
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ui.card>:first-child, .ui.cards>.card>:first-child {
+  border-radius: 0 !important;
+  border-top-right-radius: 12px !important;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
+  transform: none;
+}
+
+.ui.category.search>.results .category .result:hover, .ui.search>.results .result:hover {
+  background: hsla(0, 0%, 0%, 0.1);
+}
+
+.ui.four.cards>.card {
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ui.four.cards>.card.label {
+  margin: 45px;
+}
+
+.ui.four.cards>.card:hover {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24), 0 15px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*************** StatisticsBar STYLES ***************/
+
+/* Values & stats for StatisticsBar */
+.Stat {
+  margin: 0 !important;
+  padding: 0.3em 5vw !important;
+  border: 0 !important;
+  font-weight: bold !important;
+}
+
+.Stats {
+  margin: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+/*************** Button cluster STYLES ***************/
+
+.ui.animated.button .hidden.content {
+  margin-top: -10px;
+}
+
+.buttonMenu {
+  display: flex;
+  justify-content: center;
+}
+
+/*************** WorldMap STYLES ***************/
+
+/* WorldMap gradient background */
+.amcharts-bg {
+  fill: url(#map_background);
+}
+
+/* WorldMap hover poppup */
+.mapPoppup {
+  text-align: center;
+  padding: 2.5%;
+  background: white;
+  background-size: cover;
+  color: #000;
+  border-radius: 10px;
+}
+
+div#__AmCharts_React_1__ {
+  border-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+div#__AmCharts_React_1__ h2 {
+  font-family: 'Lobster', sans-serif;
+  font-weight: lighter;
+  margin-bottom: -20px;
+}
+
+div#__AmCharts_React_1__ h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+/*************** Search bar STYLES ***************/
+
+.ui.search>.results .result {
+  padding: 0.5em 0.5em;
+}
+
+.ui.search>.results .result .image {
+  border-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ui.search>.results .result .image img {
+  height: auto;
+}
+
+.ui.search>.results {
+  width: 25em;
 }

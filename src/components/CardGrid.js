@@ -17,7 +17,7 @@ import {
        TwitterShareButton,
        EmailShareButton,
        } from 'react-share';
-       
+
 // Truncate Text package
 import Dotdotdot from 'react-dotdotdot';
 
@@ -39,7 +39,7 @@ class CardGrid extends Component {
           image={hash.image}
           header={
                   <div className='cardHeader'>
-                    <Dotdotdot clamp={2}>
+                    <Dotdotdot  splitOnChars=' ' clamp={2}>
                       <Header>
                         {hash.name}
                       </Header>
@@ -48,7 +48,7 @@ class CardGrid extends Component {
                   }
           description={
                       <div>
-                        <Dotdotdot className='cardDescription' clamp={5}>
+                        <Dotdotdot className='cardDescription' splitOnChars=' ' clamp={5}>
                           {!hash.description ? 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quia vero necessitatibus quas, quibusdam dignissimos magnam, eligendi, alias tempore maiores incidunt tenetur eum numquam neque animi! Consequatur laborum quae temporibus.' : hash.description}
                         </Dotdotdot>
                         <Label size='small'>
