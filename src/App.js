@@ -29,8 +29,8 @@ import {api} from './api/init';
 import _ from 'lodash';
 
 // Q1ClearTitle
-import Q1ClearTitleColor from './images/PropDevTitle05.png';
-import Q1WorldTitle from './images/PropDevWorldwide05.png';
+import Q1ClearTitleColor from './images/PropDevTitle06.png';
+import Q1WorldTitle from './images/PropDevWorldwide06.png';
 
 class App extends Component {
 
