@@ -32,4 +32,4 @@ It also requires the following Packages, installed via the `npm install --save` 
 
 ## Known Bugs:
 
-..* Graphical glitch on page load, Dotdotdot won't render, pressing `CTRL+SHIFT+I` fixes it until page load.
+ * Graphical glitch on page load, Dotdotdot won't render, pressing `CTRL+SHIFT+I` fixes it until page load.
