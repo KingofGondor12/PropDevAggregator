@@ -18,7 +18,6 @@ class WorldMap extends Component {
                   "offset": "0%",
                   "stop-color": "#526ba8"
                   // "stop-color": "#64727d"
-
                 },{
                   "offset": "100%",
                   "stop-color": "#d9dee2"

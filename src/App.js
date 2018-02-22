@@ -29,8 +29,8 @@ import {api} from './api/init';
 import _ from 'lodash';
 
 // Q1ClearTitle
-import Q1ClearTitleColor from './images/Q1ClearTitleColor.png';
-import Q1WorldTitle from './images/Q1WorldTitle.png';
+import Q1ClearTitleColor from './images/PropDevLogo.png';
+import Q1WorldTitle from './images/PropDevWorldwide.png';
 
 class App extends Component {
 
@@ -161,7 +161,7 @@ render() {
       if (this.state.value.length < 1) return this.resetComponent()
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.name.concat(result.tag))
+      const isMatch = result => re.test(result.name.concat([result.tag, result.code, result.type]))
 
       this.setState({
         isLoading: false,
@@ -182,12 +182,11 @@ render() {
       if (this.state.value.length < 1) return this.resetComponent()
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.name.concat(result.tag))
+      const isMatch = result => re.test(result.name.concat([result.tag, result.code, result.type]))
 
       this.setState({
         isLoading: false,
         results: _.filter(this.state.siteData, isMatch),
-
       })
     }, 500)
   }
