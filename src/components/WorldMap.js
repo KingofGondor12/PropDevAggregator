@@ -20,7 +20,7 @@ class WorldMap extends Component {
                   // "stop-color": "#64727d"
                 },{
                   "offset": "100%",
-                  "stop-color": "#d9dee2"
+                  "stop-color": "#D0D7E9"
                 }]
               }
             ]

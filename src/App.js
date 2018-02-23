@@ -29,8 +29,8 @@ import {api} from './api/init';
 import _ from 'lodash';
 
 // Q1ClearTitle
-import Q1ClearTitleColor from './images/PropDevTitle06.png';
-import Q1WorldTitle from './images/PropDevWorldwide06.png';
+import Q1ClearTitleColor from './images/PropDevTitle_CMaier.png';
+import Q1WorldTitle from './images/PropDevWorldwide_CMaier.png';
 
 class App extends Component {
 
@@ -55,7 +55,7 @@ render() {
   {/* Loading spinner */}
         {!loaded && <LoadingScreen />}
   {/* Anchor for clickable-map. Scrolls to top of page to search bar */}
-        <ScrollableAnchor id={"search"}>
+        <ScrollableAnchor id={'search'}>
           <div></div>
         </ScrollableAnchor>
   {/* Title image */}
@@ -76,13 +76,41 @@ render() {
         />
         <br />
   {/* Button cluster at top of page */}
-        <div className="buttonMenu">
-          <Button href="#map" animated={'fade'}>
-            <Button.Content visible>Worldwide Developments</Button.Content>
+        <div className='buttonMenu'>
+          <Button.Group>
+          <Button href='https://www.instagram.com/q1_design/' target='_blank' animated={'fade'}>
+            <Button.Content visible>Instagram</Button.Content>
             <Button.Content hidden>
-              <Icon name='world' size='large' />
+              <Icon name='instagram' size='large' />
             </Button.Content>
           </Button>
+          <Button href='https://www.facebook.com/q1design/' target='_blank' animated={'fade'}>
+            <Button.Content visible>Facebook</Button.Content>
+            <Button.Content hidden>
+              <Icon name='facebook square' size='large' />
+            </Button.Content>
+          </Button>
+        </Button.Group>
+            <Button id='button__worldwide' href='#map' animated={'fade'}>
+              <Button.Content visible>Worldwide Developments</Button.Content>
+              <Button.Content hidden>
+                <Icon name='world' size='large' />
+              </Button.Content>
+            </Button>
+            <Button.Group>
+            <Button href='https:/www.q1design.net' target='_blank' animated={'fade'}>
+              <Button.Content visible>Q1 Design</Button.Content>
+              <Button.Content hidden>
+                <Icon name='tv' size='large' />
+              </Button.Content>
+            </Button>
+            <Button href='https://bitbucket.org/presentplatekain/dev-real-estate' target='_blank' animated={'fade'}>
+              <Button.Content visible>Support</Button.Content>
+              <Button.Content hidden>
+                <Icon name='git square' size='large' />
+              </Button.Content>
+            </Button>
+          </Button.Group>
   {/* Test button for visibility toggle */}
           {/* <Button content={visible ? 'Hide' : 'Show'} onClick={this.toggleVisibility} /> */}
         </div>
@@ -102,7 +130,7 @@ render() {
             <hr />
   {/* WorldMap Title image */}
             <Image centered src={Q1WorldTitle} />
-            <ScrollableAnchor id={"map"}>
+            <ScrollableAnchor id={'map'}>
   {/* WorldMap component */}
               <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
             </ScrollableAnchor>
@@ -169,7 +197,7 @@ render() {
         visible: true
       })
     }, 500)
-      document.getElementById("searchbar").focus()
+      document.getElementById('searchbar').focus()
   }
 
   handleSearchChange = (e, { value }) => {
