@@ -45,22 +45,22 @@ state = {
 
 render() {
 
-  // Destructuring props to be passed to components
+// Destructuring props to be passed to components
   const {siteData, isLoading, value, results, loaded, visible } = this.state
 
   return (
     <Container fluid >
       <Container>
 
-  {/* Loading spinner */}
+{/* Loading spinner */}
         {!loaded && <LoadingScreen />}
-  {/* Anchor for clickable-map. Scrolls to top of page to search bar */}
+{/* Anchor for clickable-map. Scrolls to top of page to search bar */}
         <ScrollableAnchor id={'search'}>
           <div></div>
         </ScrollableAnchor>
-  {/* Title image */}
+{/* Title image */}
         <Image centered src={Q1ClearTitleColor} />
-  {/* Search bar */}
+{/* Search bar */}
         <Search
           id={'searchbar'}
           input={{fluid: true}}
@@ -75,29 +75,29 @@ render() {
           {...this.props}
         />
         <br />
-  {/* Button cluster at top of page */}
+{/* Button cluster at top of page */}
         <div className='buttonMenu'>
           <Button.Group>
-          <Button href='https://www.instagram.com/q1_design/' target='_blank' animated={'fade'}>
-            <Button.Content visible>Instagram</Button.Content>
-            <Button.Content hidden>
-              <Icon name='instagram' size='large' />
-            </Button.Content>
-          </Button>
-          <Button href='https://www.facebook.com/q1design/' target='_blank' animated={'fade'}>
-            <Button.Content visible>Facebook</Button.Content>
-            <Button.Content hidden>
-              <Icon name='facebook square' size='large' />
-            </Button.Content>
-          </Button>
-        </Button.Group>
-            <Button id='button__worldwide' href='#map' animated={'fade'}>
-              <Button.Content visible>Worldwide Developments</Button.Content>
+            <Button href='https://www.instagram.com/q1_design/' target='_blank' animated={'fade'}>
+              <Button.Content visible>Instagram</Button.Content>
               <Button.Content hidden>
-                <Icon name='world' size='large' />
+                <Icon name='instagram' size='large' />
               </Button.Content>
             </Button>
-            <Button.Group>
+            <Button href='https://www.facebook.com/q1design/' target='_blank' animated={'fade'}>
+              <Button.Content visible>Facebook</Button.Content>
+              <Button.Content hidden>
+                <Icon name='facebook square' size='large' />
+              </Button.Content>
+            </Button>
+          </Button.Group>
+          <Button id='button__worldwide' href='#map' animated={'fade'}>
+            <Button.Content visible>Worldwide Developments</Button.Content>
+            <Button.Content hidden>
+              <Icon name='world' size='large' />
+            </Button.Content>
+          </Button>
+          <Button.Group>
             <Button href='https:/www.q1design.net' target='_blank' animated={'fade'}>
               <Button.Content visible>Q1 Design</Button.Content>
               <Button.Content hidden>
@@ -107,20 +107,18 @@ render() {
             <Button href='https://bitbucket.org/presentplatekain/dev-real-estate' target='_blank' animated={'fade'}>
               <Button.Content visible>Support</Button.Content>
               <Button.Content hidden>
-                <Icon name='git square' size='large' />
+                <Icon name='bitbucket' size='large' />
               </Button.Content>
             </Button>
           </Button.Group>
-  {/* Test button for visibility toggle */}
-          {/* <Button content={visible ? 'Hide' : 'Show'} onClick={this.toggleVisibility} /> */}
         </div>
         <br />
         <hr />
         <br />
-  {/* Trasition code for CardGrid component */}
+{/* Transition code for CardGrid component */}
         <Transition visible={visible} animation='fade' duration={500}>
           <div>
-  {/* CardGrid component */}
+{/* CardGrid component */}
           {!value ? <CardGrid siteData={siteData} /> : <CardGrid siteData={results} />}
           </div>
         </Transition>
@@ -128,17 +126,17 @@ render() {
         {loaded &&
           <div>
             <hr />
-  {/* WorldMap Title image */}
+{/* WorldMap Title image */}
             <Image centered src={Q1WorldTitle} />
             <ScrollableAnchor id={'map'}>
-  {/* WorldMap component */}
+{/* WorldMap component */}
               <WorldMap handleMapObjectClick={this.handleMapObjectClick} />
             </ScrollableAnchor>
           </div>
         }
         <br />
       </Container>
-  {/* Statistics cluster */}
+{/* Statistics cluster */}
       {loaded && <StatisticsBar siteData={siteData} />}
     </Container>
     )
@@ -149,7 +147,7 @@ render() {
       loaded: false,
       visible: false
     })
-    // Grab out messages from the API
+// Grab out messages from the API
     api.get('/').then((response) => {
       // Everything worked, response.data is our array of messages
       this.setState({
@@ -166,6 +164,8 @@ render() {
     this.resetComponent()
   }
 
+// Resets the component states
+
   resetComponent = () => {
     this.setState({
       isLoading: false,
@@ -174,11 +174,15 @@ render() {
     })
   }
 
+// Changes value of the search bar text
+
   handleResultSelect = (e, { result }) => {
     this.setState({
       value: result.name
     })
   }
+
+// Handles the search function when the map is clicked
 
   handleMapObjectClick = ( event ) => {
     this.setState({
@@ -199,6 +203,8 @@ render() {
     }, 500)
       document.getElementById('searchbar').focus()
   }
+
+// Handles the search function when text is input
 
   handleSearchChange = (e, { value }) => {
     this.setState({
