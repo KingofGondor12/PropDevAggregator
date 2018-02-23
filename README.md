@@ -5,9 +5,9 @@ This site was developed by Chris Hayward and Christopher Maier, combining Sinatr
 
 PropDev requires the following Gems, installed via the `gem install` command:
 
- * Sinatra
- * Sinatra/cors
- * Nokogiri
+ * sinatra
+ * sinatra/cors
+ * nokogiri
  * open-uri (as standard with Ruby)
  * net-http-ssl-fix
  * json
