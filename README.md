@@ -40,3 +40,5 @@ Note: If being put into production, ensure that the URL in `src/api/init.js` is 
 ---
 
 ## Known Bugs:
+
+ * Graphical glitch on page load, Dotdotdot won't render, pressing `CTRL+SHIFT+I` fixes it until page load.
