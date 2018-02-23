@@ -22,7 +22,6 @@ class LoadingScreen extends Component {
             <div className="sk-cube3 sk-cube"></div>
           </div>
           <h1 className="ml1">LOADING</h1>
-          {/* <Loader indeterminate size={'large'}>Just a few seconds...</Loader> */}
         </Dimmer>
       </div>
     )
