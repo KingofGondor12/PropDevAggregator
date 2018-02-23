@@ -210,21 +210,32 @@ i.flag {
 }
 
 .Stats {
-  margin: 0 !important;
+  background: #eee linear-gradient(135deg, #526ba8, #d9dfee) !important;
+  margin: 0 -10px !important;
   border: 0 !important;
   padding: 0 !important;
   border-radius: 0 !important;
   display: flex;
-  justify-content: space-evenly;
-  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#root > div > div:nth-child(2) > div > div > div > a {
+  color: white !important;
+  transition: 0.3s ease-in-out;
+}
+
+#root > div > div:nth-child(2) > div > div > div > a:hover {
+  color: #555 !important;
 }
 
 /*************** Button cluster STYLES ***************/
+#button__worldwide {
+  margin-right: 0;
+}
 
-.ui.animated.button {
-  border-radius: 0;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 10px;
+.ui.buttons {
+  margin: 0 5px;
 }
 
 .ui.animated.button .hidden.content {
